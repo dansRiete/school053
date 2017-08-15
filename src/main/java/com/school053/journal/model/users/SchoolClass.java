@@ -1,6 +1,6 @@
 package com.school053.journal.model.users;
 
-import com.school.journal.model.events.Lesson;
+import com.school053.journal.model.events.Lesson;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;

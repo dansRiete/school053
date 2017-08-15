@@ -1,16 +1,12 @@
 package com.school053.journal.model.users;
 
 
-import com.school.journal.model.security.User;
-import org.hibernate.annotations.Table;
-
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import java.io.Serializable;
 
 @Entity
-@Table
 public class Teacher extends User implements Serializable {
 
     @Column(name = "description")

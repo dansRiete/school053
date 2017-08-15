@@ -1,7 +1,6 @@
 package com.school053.journal.model.users;
 
-import com.school.journal.model.security.Authority;
-import com.school.journal.model.security.User;
+import com.school053.journal.model.security.User;
 
 import javax.persistence.*;
 import java.io.Serializable;

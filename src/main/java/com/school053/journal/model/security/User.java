@@ -1,4 +1,4 @@
-package com.school.journal.model.security;
+package com.school053.journal.model.security;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -7,21 +7,7 @@ import java.io.Serializable;
 import java.util.Collection;
 
 @Entity
-@Table(name = "sec_user")
-@NamedQueries({
-        @NamedQuery(name = User.FIND_BY_USERNAME,
-                query = "FROM User u WHERE u.nickname = :nickname"),
-        @NamedQuery(name = User.FIND_BY_EMAIL,
-                query = "FROM User u WHERE u.email = :email"),
-        @NamedQuery(name = User.FIND_EXISTING_NICKNAME,
-                query = "FROM User u WHERE u.nickname = :nickname AND u.id != :id"),
-        @NamedQuery(name = User.FIND_EXISTING_EMAIL,
-                query = "FROM User u WHERE u.email = :email AND u.id != :id"),
-        @NamedQuery(name = User.COUNT_BY_USERNAME,
-                query = "select count(u) FROM User u WHERE u.nickname = :nickname"),
-        @NamedQuery(name = User.COUNT_BY_EMAIL,
-                query = "select count(u) FROM User u WHERE u.email = :email")
-})
+@Table
 @Inheritance(strategy = InheritanceType.JOINED)
 public class User implements Serializable {
 
