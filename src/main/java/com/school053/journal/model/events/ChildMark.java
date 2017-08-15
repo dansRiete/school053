@@ -1,11 +1,10 @@
 package com.school053.journal.model.events;
 
-import com.school.journal.model.users.Child;
+import com.school053.journal.model.users.Child;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
 
 /**
  * This class is used to describe child mark entity.

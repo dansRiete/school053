@@ -1,6 +1,8 @@
 package com.school053.journal.model.users;
 
 
+import com.school053.journal.model.security.User;
+
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;

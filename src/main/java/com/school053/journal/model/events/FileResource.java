@@ -1,8 +1,4 @@
 package com.school053.journal.model.events;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.school.journal.model.users.SchoolClass;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -44,7 +40,7 @@ public class FileResource implements Serializable {
             joinColumns = @JoinColumn(name = "file_id"),
             inverseJoinColumns = @JoinColumn(name = "event_id")
     )
-    @JsonIgnore
+
     public List<LessonEvent> getEvents() {
         return events;
     }
