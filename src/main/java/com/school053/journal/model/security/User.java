@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.Collection;
 
 @Entity
-@Table
+@Table(name="users")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class User implements Serializable {
 

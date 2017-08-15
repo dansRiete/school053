@@ -6,9 +6,11 @@ import com.school053.journal.model.security.User;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
+@Table(name="teachers")
 public class Teacher extends User implements Serializable {
 
     @Column(name = "description")

@@ -10,7 +10,7 @@ import java.io.Serializable;
  * This class is used to describe child mark entity.
  */
 @Entity
-@Table
+@Table(name="child_marks")
 public class ChildMark implements Serializable {
     public static final String SELECT_BY_LESSON_EVENT_ID = "ChildMark.selectByLessonEventId";
     public static final String GET_BY_CHILD_ID = "ChildMark.getMarksByChildId";

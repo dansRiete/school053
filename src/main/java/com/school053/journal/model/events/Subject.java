@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name="subjects")
 public class Subject implements Serializable {
 
     public static final String FIND_BY_NAME = "Subject.findByName";

@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table
+@Table(name="lesson_event_types")
 public class LessonEventType implements Serializable{
 
     @Id

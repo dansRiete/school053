@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name="childs")
 public class Child extends User implements Serializable {
 
     public static final String FIND_BY_CLASS = "Child.findByClass";

@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name="lesson_events")
 public class LessonEvent implements Serializable {
 
     public static final String SELECT_JOURNAL = "LessonEvent.selectJournal";

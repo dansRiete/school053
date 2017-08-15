@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name="school_classes")
 public class SchoolClass implements Serializable {
 
     public static final String FIND_ACTIVE = "SchoolClass.findActive";

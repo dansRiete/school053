@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table
+@Table(name="lessons")
 public class Lesson implements Serializable {
 
     public static final String FIND_BY_TEACHER = "Lesson.findByTeacher";

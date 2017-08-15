@@ -3,7 +3,7 @@ package com.school053.journal.model.security;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "sec_authority")
+@Table(name = "authorities")
 public class Authority {
     public enum AuthorityType {
         TEACHER, ADMIN, PARENT, CHILD

@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name="parents")
 public class Parent extends User implements Serializable {
 
     public static final String FIND_ACTIVE = "Parent.findActive";

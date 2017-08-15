@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table
+@Table(name="file_resources")
 public class FileResource implements Serializable {
 
     public static final String FIND_BY_EVENT = "FileResource.findFilesByEventId";
