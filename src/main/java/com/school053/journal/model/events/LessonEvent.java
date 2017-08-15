@@ -47,21 +47,15 @@ public class LessonEvent implements Serializable {
     }
 
     public LessonEvent(Lesson lesson, LocalDate eventDate,
-                       String comment, LessonEventType lessonEventType,
-                       List<ChildMark> childMarkList, Boolean completed,
+                       String comment, List<ChildMark> childMarkList, Boolean completed,
                        LocalDate completionDate, List<FileResource> files) {
         this.lesson = lesson;
         this.eventDate = eventDate;
         this.comment = comment;
-        this.lessonEventType = lessonEventType;
         this.childMarkList = childMarkList;
         this.completed = completed;
         this.completionDate = completionDate;
         this.files = files;
-    }
-
-    public LessonEventType getLessonEventType() {
-        return lessonEventType;
     }
 
     public String getId() {
@@ -94,10 +88,6 @@ public class LessonEvent implements Serializable {
 
     public void setComment(String comment) {
         this.comment = comment;
-    }
-
-    public void setLessonEventType(LessonEventType lessonEventType) {
-        this.lessonEventType = lessonEventType;
     }
 
     public List<ChildMark> getChildMarkList() {

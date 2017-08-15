@@ -2,6 +2,7 @@ package com.school053.journal.model.users;
 
 
 import com.school.journal.model.security.User;
+import org.hibernate.annotations.Table;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
