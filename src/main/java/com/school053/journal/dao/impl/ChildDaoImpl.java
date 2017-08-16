@@ -1,4 +1,4 @@
-package com.school053.journal.dao.impls;
+package com.school053.journal.dao.impl;
 import com.school053.journal.dao.AbstractDao;
 import com.school053.journal.dao.ChildDao;
 import com.school053.journal.model.users.Child;
