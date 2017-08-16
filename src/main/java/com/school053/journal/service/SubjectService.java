@@ -11,7 +11,7 @@ public interface SubjectService {
 
     void deleteSubjectById(int id);
 
-    SubjectDto getSubject(int id);
+    SubjectDto getSubject(String id);
 
     List<SubjectDto> getSubjects();
 }

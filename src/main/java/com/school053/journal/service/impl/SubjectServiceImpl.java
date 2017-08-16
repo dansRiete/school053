@@ -37,8 +37,8 @@ public class SubjectServiceImpl implements SubjectService {
     }
 
     @Override
-    public SubjectDto getSubject(int id) {
-        return null;
+    public SubjectDto getSubject(String id) {
+        return SubjectMapper.MAPPER.toDto(subjectDao.findOne(id));
     }
 
     @Override
