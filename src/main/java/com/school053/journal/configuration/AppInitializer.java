@@ -24,11 +24,4 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
         return new String[] { "/" };
     }
 
-    @Override
-    protected DispatcherServlet createDispatcherServlet(WebApplicationContext servletAppContext) {
-        DispatcherServlet servlet = new DispatcherServlet(servletAppContext);
-        servlet.setThrowExceptionIfNoHandlerFound(true);
-        return servlet;
-    }
-
 }

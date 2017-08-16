@@ -34,13 +34,13 @@ public class User implements Serializable {
     private boolean active;
 
     @Column(name = "first_name", nullable = false, length = 64)
-    private String firstName;
+    protected String firstName;
 
     @Column(name = "patronymic", length = 64)
     private String patronymic;
 
     @Column(name = "last_name", nullable = false, length = 64)
-    private String lastName;
+    protected String lastName;
 
     @Column(name = "phone_number", length = 36)
     private String phoneNumber;

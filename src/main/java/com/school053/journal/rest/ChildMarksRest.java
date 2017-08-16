@@ -3,6 +3,7 @@ package com.school053.journal.rest;
 import com.school053.journal.dao.impls.ChildDaoImpl;
 import com.school053.journal.model.users.Child;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
  * Created by Aleks on 15.08.2017.
  */
 @RestController
-@RequestMapping("/rest")
+@RequestMapping("/child")
 public class ChildMarksRest {
 
     private final ChildDaoImpl childDao;
@@ -21,12 +22,13 @@ public class ChildMarksRest {
         this.childDao = childDao;
     }
 
-    @RequestMapping(value = "/get", method = RequestMethod.GET)
+    @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
     public List<Child> getChildEvents() {
         System.out.println("REST CALLED");
-        System.out.println("REST CALLED " + childDao.findAll().size());
-
-        return childDao.findAll();
+        List<Child> fetchedChilds = childDao.getActiveChildren();
+        System.out.println("REST CALLED " + fetchedChilds.size());
+        System.out.println(fetchedChilds.get(0));
+        return fetchedChilds;
     }
 
 }
