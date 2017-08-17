@@ -1,14 +1,10 @@
 package com.school053.journal.rest;
 
 import com.school053.journal.dto.ClassDto;
-import com.school053.journal.model.users.SchoolClass;
-import com.school053.journal.service.ChildService;
 import com.school053.journal.service.ClassService;
-import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
