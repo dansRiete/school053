@@ -11,7 +11,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name="teachers")
-public class Teacher extends User implements Serializable {
+public class Teacher extends User {
 
     @Column(name = "description")
     private String description;

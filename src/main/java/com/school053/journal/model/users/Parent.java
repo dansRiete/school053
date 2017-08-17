@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name="parents")
-public class Parent extends User implements Serializable {
+public class Parent extends User {
 
     public static final String FIND_ACTIVE = "Parent.findActive";
     public static final String FIND_AVAILABLE = "Parent.findAvailable";

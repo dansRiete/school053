@@ -10,12 +10,10 @@ import java.util.List;
 @Entity
 @Table(name="childs")
 @NamedQueries({
-        @NamedQuery(name = Child.FIND_BY_CLASS,
-                query = "FROM Child c WHERE c.schoolClass.id = :classId"),
-        @NamedQuery(name = Child.FIND_ACTIVE,
-                query = "FROM Child c WHERE c.active = true")
+        @NamedQuery(name = Child.FIND_BY_CLASS, query = "FROM Child c WHERE c.schoolClass.id = :classId"),
+        @NamedQuery(name = Child.FIND_ACTIVE, query = "FROM Child c WHERE c.active = true")
 })
-public class Child extends User implements Serializable {
+public class Child extends User{
 
     public static final String FIND_BY_CLASS = "Child.findByClass";
     public static final String FIND_ACTIVE = "Child.findActive";

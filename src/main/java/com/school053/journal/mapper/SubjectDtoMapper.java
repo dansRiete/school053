@@ -7,8 +7,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
-public interface SubjectMapper {
-    SubjectMapper MAPPER = Mappers.getMapper(SubjectMapper.class);
+public interface SubjectDtoMapper {
+    SubjectDtoMapper MAPPER = Mappers.getMapper(SubjectDtoMapper.class);
 
     SubjectDto toDto(Subject subject);
 

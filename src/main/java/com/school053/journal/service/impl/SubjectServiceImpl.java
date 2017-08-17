@@ -2,7 +2,7 @@ package com.school053.journal.service.impl;
 
 import com.school053.journal.dao.SubjectDao;
 import com.school053.journal.dto.SubjectDto;
-import com.school053.journal.mapper.SubjectMapper;
+import com.school053.journal.mapper.SubjectDtoMapper;
 import com.school053.journal.model.events.Subject;
 import com.school053.journal.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +38,7 @@ public class SubjectServiceImpl implements SubjectService {
 
     @Override
     public SubjectDto getSubject(String id) {
-        return SubjectMapper.MAPPER.toDto(subjectDao.findOne(id));
+        return SubjectDtoMapper.MAPPER.toDto(subjectDao.findOne(id));
     }
 
     @Override
@@ -46,7 +46,7 @@ public class SubjectServiceImpl implements SubjectService {
         return subjectDao
                 .findAll()
                 .stream()
-                .map(SubjectMapper.MAPPER :: toDto)
+                .map(SubjectDtoMapper.MAPPER :: toDto)
                 .collect(Collectors.toList());
     }
 }
