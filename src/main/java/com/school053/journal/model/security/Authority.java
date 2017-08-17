@@ -14,27 +14,14 @@ public class Authority {
     @Enumerated(EnumType.STRING)
     private AuthorityType authority;
 
-    @Column(name = "page", length = 36)
-    private String defaultPage;
-
-    public Authority(AuthorityType authority, String defaultPage) {
-        this.authority = authority;
-        this.defaultPage = defaultPage;
-    }
-
     public Authority() {
     }
-
-    public String getDefaultPage() {
-        return defaultPage;
+    
+    public Authority(AuthorityType authority) {
+        this.authority = authority;
     }
-
-    public void setDefaultPage(String defaultPage) {
-        this.defaultPage = defaultPage;
-    }
-
+   
     public void setAuthority(AuthorityType authority) {
         this.authority = authority;
     }
-
 }
