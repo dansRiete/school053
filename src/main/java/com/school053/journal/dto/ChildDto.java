@@ -39,14 +39,4 @@ public class ChildDto {
     public void setPatronymic(String patronymic) {
         this.patronymic = patronymic;
     }
-
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
 }

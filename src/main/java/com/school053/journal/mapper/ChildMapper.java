@@ -6,8 +6,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
-public interface ChildDtoMapper {
-    ChildDtoMapper MAPPER = Mappers.getMapper(ChildDtoMapper.class);
+public interface ChildMapper {
+    ChildMapper MAPPER = Mappers.getMapper(ChildMapper.class);
 
     ChildDto toDto(Child child);
 }

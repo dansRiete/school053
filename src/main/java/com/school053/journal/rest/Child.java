@@ -1,8 +1,7 @@
 package com.school053.journal.rest;
 
-import com.school053.journal.dto.SubjectDto;
-import com.school053.journal.service.SubjectService;
-import com.school053.journal.service.impl.SubjectServiceImpl;
+import com.school053.journal.dto.ChildDto;
+import com.school053.journal.service.ChildService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -13,16 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/subject")
-public class SubjectRest {
+@RequestMapping("/child")
+public class Child {
 
     @Autowired
-    private SubjectService subjectService;
-
+    private ChildService childService;
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
-    public ResponseEntity<List<SubjectDto>> getSubjects() {
-        List<SubjectDto> subjects = subjectService.getSubjects();
-        return ResponseEntity.ok(subjects);
+    public ResponseEntity<List<ChildDto>> getChildren() {
+        return ResponseEntity.ok(childService.getChildren());
     }
 }

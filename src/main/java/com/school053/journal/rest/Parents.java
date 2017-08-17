@@ -7,7 +7,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/parents")
-public class ParentsRest {
+public class Parents {
 
 
     @GetMapping("/getAll")

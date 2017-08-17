@@ -13,12 +13,12 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/childMark")
-public class ChildMarksRest {
+public class ChildMarks {
 
     private final ChildDaoImpl childDao;
 
     @Autowired
-    public ChildMarksRest(ChildDaoImpl childDao) {
+    public ChildMarks(ChildDaoImpl childDao) {
         this.childDao = childDao;
     }
 

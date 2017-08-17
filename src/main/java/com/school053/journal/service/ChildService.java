@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ChildService {
     List<ChildDto> getChildren();
-    Child getById(int id);
-    void createChild(Child child);
+    ChildDto getById(int id);
+    void createChild(com.school053.journal.model.users.Child child);
     void deleteChild(int id);
 }
