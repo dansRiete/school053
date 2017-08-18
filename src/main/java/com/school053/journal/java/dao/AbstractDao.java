@@ -20,7 +20,7 @@ public abstract class AbstractDao<T extends Serializable> implements InterfaceDa
         this.entityType = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
     }
 
-    public T findOne(String id) {
+    public T find(String id) {
         return entityManager.find(entityType, id);
     }
 
@@ -43,8 +43,8 @@ public abstract class AbstractDao<T extends Serializable> implements InterfaceDa
         entityManager.remove(entity);
     }
 
-    public void deleteById(String entityId) {
-        T entity = findOne(entityId);
+    public void delete(String entityId) {
+        T entity = find(entityId);
         delete(entity);
     }
 

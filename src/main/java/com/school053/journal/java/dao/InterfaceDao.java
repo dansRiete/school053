@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface InterfaceDao<T> {
 
-    T findOne(String id);
+    T find(String id);
 
     List<T> findAll();
 
@@ -14,6 +14,6 @@ public interface InterfaceDao<T> {
 
     void delete(T entity);
 
-    void deleteById(String entityId);
+    void delete(String entityId);
 
 }
