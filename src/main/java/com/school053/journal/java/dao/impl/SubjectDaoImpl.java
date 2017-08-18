@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class SubjectDaoImpl extends AbstractDao<Subject> implements SubjectDao {
+
 }

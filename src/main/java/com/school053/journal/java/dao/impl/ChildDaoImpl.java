@@ -21,5 +21,4 @@ public class ChildDaoImpl extends AbstractDao<Child> implements ChildDao {
                 .setParameter("classId", classId)
                 .getResultList();
     }
-
 }
