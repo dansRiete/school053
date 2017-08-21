@@ -7,6 +7,12 @@ import java.util.List;
 
 @Entity
 @Table(name="parents")
+@NamedQueries({
+        @NamedQuery(name = Parent.FIND_ACTIVE,
+                query = "FROM Parent p WHERE p.active = true"),
+        @NamedQuery(name = Parent.FIND_AVAILABLE,
+                query = "SELECT p FROM Parent p WHERE NOT p.id IN (SELECT p FROM Parent p INNER JOIN p.children c WHERE c.id = :childId)")
+})
 public class Parent extends User {
 
     public static final String FIND_ACTIVE = "Parent.findActive";

@@ -4,7 +4,6 @@ import com.school053.journal.java.mapper.ChildMapper;
 import com.school053.journal.java.mapper.ClassMapper;
 import com.school053.journal.java.model.users.SchoolClass;
 import com.school053.journal.java.model.users.Child;
-import com.school053.journal.java.rest.Class;
 
 import java.util.ArrayList;
 import java.util.List;
