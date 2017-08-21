@@ -1,3 +1,269 @@
+ALTER TABLE school_classes DROP CONSTRAINT fkkdf05jfova8l0gp7lp4b37cu4;
+
+ALTER TABLE lesson_events DROP CONSTRAINT fkdoygbdejt45xct3w07m2ib39b;
+
+ALTER TABLE relationship DROP CONSTRAINT fkbw1jbdwu89d1hp6wfh4p7rieo;
+
+ALTER TABLE file_event DROP CONSTRAINT fk4tcv6a1daai17iciulcx89r1a;
+
+ALTER TABLE lessons DROP CONSTRAINT fke94a0k21xpi7glv89af90lwjv;
+
+ALTER TABLE child_marks DROP CONSTRAINT fkdgbjsvbb3q9n6yfymec7urmtc;
+
+ALTER TABLE relationship DROP CONSTRAINT fke8i6145afk3qabl2c3jyerdf5;
+
+ALTER TABLE lessons DROP CONSTRAINT fkbr76cuebuufbbltujpfq04tto;
+
+ALTER TABLE childs DROP CONSTRAINT fk10d891of8oojk4ei9itusmpdf;
+
+ALTER TABLE childs DROP CONSTRAINT fkcopxtxtfbh8od512oxxsw2tll;
+
+ALTER TABLE teachers DROP CONSTRAINT fkpavufmal5lbtc60csriy8sx3;
+
+ALTER TABLE child_marks DROP CONSTRAINT fkmavwmrdkccxc9dc4yo7ir7rhc;
+
+ALTER TABLE sec_user_authority DROP CONSTRAINT fkhd8to35nfplci0dvltuxk79b2;
+
+ALTER TABLE sec_user_authority DROP CONSTRAINT fkesm40vufwhgtfawxng2s4s1w8;
+
+ALTER TABLE child_marks DROP CONSTRAINT fkghk2om1x2jxiu93ky49jfowpn;
+
+ALTER TABLE parents DROP CONSTRAINT fkbunaue5n1kwq8j49jeqvgu0f3;
+
+ALTER TABLE file_event DROP CONSTRAINT fk8snmi2dxf30wuwavhvfpusf76;
+
+ALTER TABLE lessons DROP CONSTRAINT fk5ogghui2470katri71aovp3nv;
+
+ALTER TABLE lessons DROP CONSTRAINT lessons_pkey;
+
+ALTER TABLE school_classes DROP CONSTRAINT school_classes_pkey;
+
+ALTER TABLE parents DROP CONSTRAINT parents_pkey;
+
+ALTER TABLE subjects DROP CONSTRAINT subjects_pkey;
+
+ALTER TABLE file_resources DROP CONSTRAINT file_resources_pkey;
+
+ALTER TABLE childs DROP CONSTRAINT childs_pkey;
+
+ALTER TABLE teachers DROP CONSTRAINT teachers_pkey;
+
+ALTER TABLE users DROP CONSTRAINT users_pkey;
+
+ALTER TABLE lesson_event_types DROP CONSTRAINT lesson_event_types_pkey;
+
+ALTER TABLE lesson_events DROP CONSTRAINT lesson_events_pkey;
+
+ALTER TABLE child_marks DROP CONSTRAINT child_marks_pkey;
+
+ALTER TABLE authorities DROP CONSTRAINT authorities_pkey;
+
+DROP TABLE IF EXISTS school_classes;
+
+DROP TABLE IF EXISTS subjects;
+
+DROP TABLE IF EXISTS lessons;
+
+DROP TABLE IF EXISTS relationship;
+
+DROP TABLE IF EXISTS parents;
+
+DROP TABLE IF EXISTS lesson_events;
+
+DROP TABLE IF EXISTS lesson_event_types;
+
+DROP TABLE IF EXISTS child_marks;
+
+DROP TABLE IF EXISTS childs;
+
+DROP TABLE IF EXISTS authorities;
+
+DROP TABLE IF EXISTS teachers;
+
+DROP TABLE IF EXISTS users;
+
+DROP TABLE IF EXISTS sec_user_authority;
+
+DROP TABLE IF EXISTS file_event;
+
+DROP TABLE IF EXISTS file_resources;
+
+CREATE TABLE school_classes (
+		id VARCHAR(36) NOT NULL,
+		active BOOL NOT NULL,
+		name VARCHAR(36) NOT NULL,
+		studying_end TIMESTAMP,
+		studying_start TIMESTAMP,
+		curator_id VARCHAR(255)
+	);
+
+CREATE TABLE subjects (
+		id VARCHAR(36) NOT NULL,
+		alias VARCHAR(64) NOT NULL,
+		name VARCHAR(64) NOT NULL
+	);
+
+CREATE TABLE lessons (
+		id VARCHAR(36) NOT NULL,
+		class_id VARCHAR(36),
+		subject_id VARCHAR(36),
+		teacher_id VARCHAR(255)
+	);
+
+CREATE TABLE relationship (
+		parent_id VARCHAR(255) NOT NULL,
+		child_id VARCHAR(255) NOT NULL
+	);
+
+CREATE TABLE parents (
+		job VARCHAR(64),
+		id VARCHAR(255) NOT NULL
+	);
+
+CREATE TABLE lesson_events (
+		id VARCHAR(36) NOT NULL,
+		comment VARCHAR(255),
+		completed BOOL,
+		completion_date DATE,
+		event_date DATE,
+		lesson_id VARCHAR(36)
+	);
+
+CREATE TABLE lesson_event_types (
+		id VARCHAR(255) NOT NULL,
+		name VARCHAR(255)
+	);
+
+CREATE TABLE child_marks (
+		id VARCHAR(36) NOT NULL,
+		absent BOOL,
+		mark INT4,
+		remark VARCHAR(255),
+		child_id VARCHAR(255),
+		lesson_event_id VARCHAR(36),
+		lessoneventtype_id VARCHAR(255)
+	);
+
+CREATE TABLE childs (
+		id VARCHAR(255) NOT NULL,
+		school_class_id VARCHAR(36) NOT NULL
+	);
+
+CREATE TABLE authorities (
+		name VARCHAR(36) NOT NULL
+	);
+
+CREATE TABLE teachers (
+		description VARCHAR(255),
+		id VARCHAR(255) NOT NULL
+	);
+
+CREATE TABLE users (
+		id VARCHAR(255) NOT NULL,
+		active BOOL NOT NULL,
+		email VARCHAR(36),
+		first_name VARCHAR(64) NOT NULL,
+		last_name VARCHAR(64) NOT NULL,
+		nickname VARCHAR(36) NOT NULL,
+		password VARCHAR(255) NOT NULL,
+		patronymic VARCHAR(64),
+		phone_number VARCHAR(36)
+	);
+
+CREATE TABLE sec_user_authority (
+		user_id VARCHAR(255) NOT NULL,
+		authority_name VARCHAR(36) NOT NULL
+	);
+
+CREATE TABLE file_event (
+		file_id VARCHAR(255) NOT NULL,
+		event_id VARCHAR(36) NOT NULL
+	);
+
+CREATE TABLE file_resources (
+		id VARCHAR(255) NOT NULL,
+		name VARCHAR(255),
+		relative_path VARCHAR(255)
+	);
+
+ALTER TABLE lessons ADD CONSTRAINT lessons_pkey PRIMARY KEY (id);
+
+ALTER TABLE school_classes ADD CONSTRAINT school_classes_pkey PRIMARY KEY (id);
+
+ALTER TABLE parents ADD CONSTRAINT parents_pkey PRIMARY KEY (id);
+
+ALTER TABLE subjects ADD CONSTRAINT subjects_pkey PRIMARY KEY (id);
+
+ALTER TABLE file_resources ADD CONSTRAINT file_resources_pkey PRIMARY KEY (id);
+
+ALTER TABLE childs ADD CONSTRAINT childs_pkey PRIMARY KEY (id);
+
+ALTER TABLE teachers ADD CONSTRAINT teachers_pkey PRIMARY KEY (id);
+
+ALTER TABLE users ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+ALTER TABLE lesson_event_types ADD CONSTRAINT lesson_event_types_pkey PRIMARY KEY (id);
+
+ALTER TABLE lesson_events ADD CONSTRAINT lesson_events_pkey PRIMARY KEY (id);
+
+ALTER TABLE child_marks ADD CONSTRAINT child_marks_pkey PRIMARY KEY (id);
+
+ALTER TABLE authorities ADD CONSTRAINT authorities_pkey PRIMARY KEY (name);
+
+ALTER TABLE school_classes ADD CONSTRAINT fkkdf05jfova8l0gp7lp4b37cu4 FOREIGN KEY (curator_id)
+	REFERENCES teachers (id);
+
+ALTER TABLE lesson_events ADD CONSTRAINT fkdoygbdejt45xct3w07m2ib39b FOREIGN KEY (lesson_id)
+	REFERENCES lessons (id);
+
+ALTER TABLE relationship ADD CONSTRAINT fkbw1jbdwu89d1hp6wfh4p7rieo FOREIGN KEY (parent_id)
+	REFERENCES parents (id);
+
+ALTER TABLE file_event ADD CONSTRAINT fk4tcv6a1daai17iciulcx89r1a FOREIGN KEY (event_id)
+	REFERENCES lesson_events (id);
+
+ALTER TABLE lessons ADD CONSTRAINT fke94a0k21xpi7glv89af90lwjv FOREIGN KEY (subject_id)
+	REFERENCES subjects (id);
+
+ALTER TABLE child_marks ADD CONSTRAINT fkdgbjsvbb3q9n6yfymec7urmtc FOREIGN KEY (lessoneventtype_id)
+	REFERENCES lesson_event_types (id);
+
+ALTER TABLE relationship ADD CONSTRAINT fke8i6145afk3qabl2c3jyerdf5 FOREIGN KEY (child_id)
+	REFERENCES childs (id);
+
+ALTER TABLE lessons ADD CONSTRAINT fkbr76cuebuufbbltujpfq04tto FOREIGN KEY (teacher_id)
+	REFERENCES teachers (id);
+
+ALTER TABLE childs ADD CONSTRAINT fk10d891of8oojk4ei9itusmpdf FOREIGN KEY (id)
+	REFERENCES users (id);
+
+ALTER TABLE childs ADD CONSTRAINT fkcopxtxtfbh8od512oxxsw2tll FOREIGN KEY (school_class_id)
+	REFERENCES school_classes (id);
+
+ALTER TABLE teachers ADD CONSTRAINT fkpavufmal5lbtc60csriy8sx3 FOREIGN KEY (id)
+	REFERENCES users (id);
+
+ALTER TABLE child_marks ADD CONSTRAINT fkmavwmrdkccxc9dc4yo7ir7rhc FOREIGN KEY (lesson_event_id)
+	REFERENCES lesson_events (id);
+
+ALTER TABLE sec_user_authority ADD CONSTRAINT fkhd8to35nfplci0dvltuxk79b2 FOREIGN KEY (authority_name)
+	REFERENCES authorities (name);
+
+ALTER TABLE sec_user_authority ADD CONSTRAINT fkesm40vufwhgtfawxng2s4s1w8 FOREIGN KEY (user_id)
+	REFERENCES users (id);
+
+ALTER TABLE child_marks ADD CONSTRAINT fkghk2om1x2jxiu93ky49jfowpn FOREIGN KEY (child_id)
+	REFERENCES childs (id);
+
+ALTER TABLE parents ADD CONSTRAINT fkbunaue5n1kwq8j49jeqvgu0f3 FOREIGN KEY (id)
+	REFERENCES users (id);
+
+ALTER TABLE file_event ADD CONSTRAINT fk8snmi2dxf30wuwavhvfpusf76 FOREIGN KEY (file_id)
+	REFERENCES file_resources (id);
+
+ALTER TABLE lessons ADD CONSTRAINT fk5ogghui2470katri71aovp3nv FOREIGN KEY (class_id)
+	REFERENCES school_classes (id);
+
 INSERT INTO authorities (name)
 VALUES ('TEACHER'),('ADMIN'),('PARENT'),('CHILD');
 
