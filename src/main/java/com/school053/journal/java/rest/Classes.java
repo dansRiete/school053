@@ -9,6 +9,7 @@ import com.school053.journal.java.service.ChildService;
 import com.school053.journal.java.service.ClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,5 +30,10 @@ public class Classes {
         List<SchoolClass> schoolClassList = classService.getAllActive();
         List<Child> children = childService.getAllActive();
         return new ClassAndChildDto(schoolClassList, children);
+    }
+
+    @PostMapping("/addClass")
+    public void addClass() {
+
     }
 }

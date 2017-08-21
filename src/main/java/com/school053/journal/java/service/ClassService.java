@@ -8,4 +8,5 @@ import java.util.List;
 public interface ClassService {
     List<ClassDto> getClasses();
     List<SchoolClass> getAllActive();
+    void add(ClassDto classDto);
 }
