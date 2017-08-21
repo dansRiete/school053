@@ -5,6 +5,7 @@ public class ChildDto {
     private String firstName;
     private String lastName;
     private String patronymic;
+    private ClassDto schoolClass;
 
     public ChildDto() {}
 
@@ -38,5 +39,13 @@ public class ChildDto {
 
     public void setPatronymic(String patronymic) {
         this.patronymic = patronymic;
+    }
+
+    public ClassDto getSchoolClass() {
+        return schoolClass;
+    }
+
+    public void setSchoolClass(ClassDto schoolClass) {
+        this.schoolClass = schoolClass;
     }
 }

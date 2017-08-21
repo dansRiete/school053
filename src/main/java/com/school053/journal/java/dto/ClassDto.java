@@ -5,8 +5,6 @@ public class ClassDto {
     private String name;
     private String curatorLastName;
     private String curatorFirstName;
-/*    private String studyingStart;
-    private String studyingEnd;*/
     private String curator;
 
     public ClassDto() {}
@@ -42,28 +40,4 @@ public class ClassDto {
     public void setCuratorFirstName(String curatorFirstName) {
         this.curatorFirstName = curatorFirstName;
     }
-
-/*    public String getStudyingStart() {
-        return studyingStart;
-    }
-
-    public void setStudyingStart(String studyingStart) {
-        this.studyingStart = studyingStart;
-    }
-
-    public String getStudyingEnd() {
-        return studyingEnd;
-    }
-
-    public void setStudyingEnd(String studyingEnd) {
-        this.studyingEnd = studyingEnd;
-    }*/
-
-    /*public String getCurator() {
-        return curator;
-    }
-
-    public void setCurator(String curator) {
-        this.curator = curator;
-    }*/
 }
