@@ -3,6 +3,7 @@ package com.school053.journal.java.service.impl;
 import com.school053.journal.java.dao.ChildDao;
 import com.school053.journal.java.dto.ChildDto;
 import com.school053.journal.java.mapper.ChildMapper;
+import com.school053.journal.java.model.users.Child;
 import com.school053.journal.java.service.ChildService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,12 +28,17 @@ public class ChildServiceImpl implements ChildService {
     }
 
     @Override
-    public void createChild(com.school053.journal.java.model.users.Child child) {
+    public void createChild(Child child) {
 
     }
 
     @Override
     public void deleteChild(int id) {
 
+    }
+
+    @Override
+    public List<Child> getAllActive() {
+        return childDao.findAll();
     }
 }
