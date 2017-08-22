@@ -7,7 +7,7 @@ import org.mapstruct.factory.Mappers;
 import com.school053.journal.java.dto.LessonEventDto;
 import com.school053.journal.java.model.events.LessonEvent;
 
-@Mapper
+@Mapper(uses= {})
 public interface LessonEventMapper {
 	LessonEventMapper MAPPER = Mappers.getMapper(LessonEventMapper.class);
 	
