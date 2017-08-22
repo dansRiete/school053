@@ -12,7 +12,6 @@ public class LessonEventDto {
 	}
 
 	public LessonEventDto(String id, String comment, Boolean completed, LocalDate date) {
-		super();
 		this.id = id;
 		this.comment = comment;
 		this.completed = completed;
