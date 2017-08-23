@@ -9,12 +9,13 @@ import java.util.List;
 
 @Entity
 @Table(name="lesson_events")
+@NamedQueries({
+	@NamedQuery(name = LessonEvent.FIND_BY_CHILD_SUBJECT,
+			query = "FROM LessonEvent le WHERE le.lesson.subject.id= :subjectId")
+})
 public class LessonEvent implements Serializable {
 
-    public static final String SELECT_JOURNAL = "LessonEvent.selectJournal";
-    public static final String FIND_BY_CHILD_ID_AND_DATE = "LessonEvent.findByChildAndDate";
-    public static final String SELECT_BY_TYPE_AND_TEACHER = "LessonEvent.selectUnfinished";
-    public static final String COUNT_UNCOMPLETED_LESSONS = "LessonEvent.countUncompletedLessons";
+    public static final String FIND_BY_CHILD_SUBJECT = "LessonEvent.findBySubject";
 
     @Id
     @GeneratedValue(generator = "UUID")

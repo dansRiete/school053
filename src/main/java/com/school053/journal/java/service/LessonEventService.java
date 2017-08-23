@@ -8,4 +8,6 @@ public interface LessonEventService {
 	
 	public List<LessonEventDto> getLessonEvents();
 	
+	public List<LessonEventDto> getLessonEventsBy(String subject);
+	
 }
