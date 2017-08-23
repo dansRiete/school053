@@ -5,16 +5,14 @@ import java.time.LocalDate;
 public class LessonEventDto {
 	private String id;
 	private String comment;
-	private Boolean completed;
-	private LocalDate date;
-
+	private String date;
+	
 	public LessonEventDto() {
 	}
 
-	public LessonEventDto(String id, String comment, Boolean completed, LocalDate date) {
+	public LessonEventDto(String id, String comment, String date) {
 		this.id = id;
 		this.comment = comment;
-		this.completed = completed;
 		this.date = date;
 	}
 
@@ -34,19 +32,11 @@ public class LessonEventDto {
 		this.comment = comment;
 	}
 
-	public Boolean getCompleted() {
-		return completed;
-	}
-
-	public void setCompleted(Boolean completed) {
-		this.completed = completed;
-	}
-
-	public LocalDate getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDate date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 }

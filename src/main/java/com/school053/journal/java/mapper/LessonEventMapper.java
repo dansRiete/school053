@@ -1,20 +1,16 @@
 package com.school053.journal.java.mapper;
 
-import java.time.LocalDate;
-
-import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
+import org.mapstruct.Mapping;
+import org.mapstruct.Mappings;
 
 import com.school053.journal.java.dto.LessonEventDto;
 import com.school053.journal.java.model.events.LessonEvent;
 
-@Mapper(uses= {LocalDate.class})
+@Mapper
 public interface LessonEventMapper {
-	LessonEventMapper MAPPER = Mappers.getMapper(LessonEventMapper.class);
-	
+	@Mappings({ @Mapping(target = "id", source = "lessonEvent.id"),
+			@Mapping(target = "comment", source = "lessonEvent.comment"),
+			@Mapping(target = "date", source = "lessonEvent.eventDate",   dateFormat = "dd.MM.yyyy")})
 	LessonEventDto toDto(LessonEvent lessonEvent);
-	
-	@InheritInverseConfiguration
-	LessonEvent fromDto(LessonEventDto lessonEventDto);
 }
