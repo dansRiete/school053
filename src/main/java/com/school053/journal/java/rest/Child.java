@@ -14,14 +14,19 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/child")
+@CrossOrigin(origins = "http://localhost:4200")
 public class Child {
 
     @Autowired
     private ChildService childService;
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<List<ChildDto>> getChildren() {
+        return ResponseEntity.ok(childService.getChildren());
+    }
+
+    @RequestMapping(value = "/getChildrenByClass", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<List<ChildDto>> getChildrenByClass() {
         return ResponseEntity.ok(childService.getChildren());
     }
 }

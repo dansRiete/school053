@@ -12,4 +12,5 @@ public interface ChildService {
     void createChild(com.school053.journal.java.model.users.Child child);
     void deleteChild(int id);
     List<Child> getAllActive();
+    List<ChildDto> getChildrenByClass(String id);
 }

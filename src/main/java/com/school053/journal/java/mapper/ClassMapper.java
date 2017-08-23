@@ -12,10 +12,10 @@ import org.mapstruct.factory.Mappers;
 public interface ClassMapper {
     ClassMapper MAPPER = Mappers.getMapper(ClassMapper.class);
 
-    @Mappings({
+    /*@Mappings({
             @Mapping(target = "curatorLastName", source = "schoolClass.curator.lastName"),
             @Mapping(target = "curatorFirstName", source = "schoolClass.curator.firstName")
-    })
+    })*/
     ClassDto toDto(SchoolClass schoolClass);
 
     @InheritInverseConfiguration
