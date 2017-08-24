@@ -12,4 +12,5 @@ public interface ChildService {
     void createChild(Child child);
     void deleteChild(int id);
     List<Child> getAllActive();
+    List<ChildDto> getChildrenByClass(String id);
 }

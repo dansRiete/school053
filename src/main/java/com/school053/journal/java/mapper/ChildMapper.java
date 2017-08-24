@@ -6,7 +6,7 @@ import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(uses = {ClassMapper.class})
+@Mapper(uses = {SchoolClassMapper.class})
 public interface ChildMapper {
     ChildMapper MAPPER = Mappers.getMapper(ChildMapper.class);
 

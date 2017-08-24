@@ -46,4 +46,9 @@ public class ChildServiceImpl implements ChildService {
     public List<Child> getAllActive() {
         return childDao.findAll();
     }
+
+    @Override
+    public List<ChildDto> getChildrenByClass(String id) {
+        return childDao.getChildrenByClass(id).stream().map(ChildMapper.MAPPER :: toDto).collect(Collectors.toList());
+    }
 }

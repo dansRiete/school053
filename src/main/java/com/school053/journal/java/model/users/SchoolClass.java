@@ -10,9 +10,12 @@ import java.util.List;
 
 @Entity
 @Table(name="school_classes")
+@NamedQueries({
+        @NamedQuery(name = SchoolClass.FIND_ACTIVE_BY_NAME, query = "FROM SchoolClass sc WHERE sc.active = true ORDER By sc.name")
+})
 public class SchoolClass implements Serializable {
 
-    public static final String FIND_ACTIVE = "SchoolClass.findActive";
+    public static final String FIND_ACTIVE_BY_NAME = "SchoolClass.findActiveByName";
 
     @Id
     @GeneratedValue(generator = "UUID")
