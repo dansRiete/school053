@@ -1,7 +1,7 @@
 package com.school053.journal.java.rest;
 
 import com.school053.journal.java.service.ChildService;
-import com.school053.journal.java.service.ClassService;
+import com.school053.journal.java.service.SchoolClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +14,7 @@ public class ChildrenAndClassRest {
     private ChildService childService;
 
     @Autowired
-    private ClassService classService;
+    private SchoolClassService classService;
 
 
 

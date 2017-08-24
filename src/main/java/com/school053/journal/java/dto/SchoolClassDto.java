@@ -1,14 +1,14 @@
 package com.school053.journal.java.dto;
 
-public class ClassDto {
+public class SchoolClassDto {
     private String id;
     private String name;
-    /*private String curatorLastName;
-    private String curatorFirstName;*/
-    /*private String curator;*/
-/*    private String active;*/
+    private String curatorLastName;
+    private String curatorFirstName;
+    private String curator;
+    private String active;
 
-    public ClassDto() {}
+    public SchoolClassDto() {}
 
     public String getId() {
         return id;
@@ -20,7 +20,7 @@ public class ClassDto {
 
     @Override
     public String toString() {
-        return "ClassDto{" +
+        return "SchoolClassDto{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 '}';
@@ -34,7 +34,7 @@ public class ClassDto {
         this.name = name;
     }
 
-    /*public String getCuratorLastName() {
+    public String getCuratorLastName() {
         return curatorLastName;
     }
 
@@ -48,13 +48,13 @@ public class ClassDto {
 
     public void setCuratorFirstName(String curatorFirstName) {
         this.curatorFirstName = curatorFirstName;
-    }*/
+    }
 
-    /*public String getActive() {
+    public String getActive() {
         return active;
     }
 
     public void setActive(String active) {
         this.active = active;
-    }*/
+    }
 }

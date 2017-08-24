@@ -5,7 +5,7 @@ public class ChildDto {
     private String firstName;
     private String lastName;
     private String patronymic;
-    private ClassDto schoolClass;
+    private SchoolClassDto schoolClass;
 
     public ChildDto() {}
 
@@ -41,11 +41,11 @@ public class ChildDto {
         this.patronymic = patronymic;
     }
 
-    public ClassDto getSchoolClass() {
+    public SchoolClassDto getSchoolClass() {
         return schoolClass;
     }
 
-    public void setSchoolClass(ClassDto schoolClass) {
+    public void setSchoolClass(SchoolClassDto schoolClass) {
         this.schoolClass = schoolClass;
     }
 }

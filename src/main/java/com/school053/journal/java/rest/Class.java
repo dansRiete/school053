@@ -1,7 +1,7 @@
 package com.school053.journal.java.rest;
 
-import com.school053.journal.java.dto.ClassDto;
-import com.school053.journal.java.service.ClassService;
+import com.school053.journal.java.dto.SchoolClassDto;
+import com.school053.journal.java.service.SchoolClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -18,10 +18,10 @@ import java.util.List;
 public class Class {
 
     @Autowired
-    public ClassService classService;
+    public SchoolClassService classService;
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
-    public ResponseEntity<List<ClassDto>> getClasses() {
+    public ResponseEntity<List<SchoolClassDto>> getClasses() {
         return ResponseEntity.ok(classService.getClasses());
     }
 }
