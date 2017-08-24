@@ -24,17 +24,22 @@ public class ChildServiceImpl implements ChildService {
 
     @Override
     public ChildDto getById(int id) {
-        return null;
+        return null;//todo
+    }
+
+    @Override
+    public List<ChildDto> getByParent(String parentId) {
+        return childDao.getChildrenByParent(parentId).stream().map(ChildMapper.MAPPER :: toDto).collect(Collectors.toList());
     }
 
     @Override
     public void createChild(Child child) {
-
+        //todo
     }
 
     @Override
     public void deleteChild(int id) {
-
+        //todo
     }
 
     @Override

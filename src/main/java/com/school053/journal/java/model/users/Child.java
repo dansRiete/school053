@@ -9,12 +9,14 @@ import java.util.List;
 @Table(name="childs")
 @NamedQueries({
         @NamedQuery(name = Child.FIND_BY_CLASS, query = "FROM Child c WHERE c.schoolClass.id = :classId"),
-        @NamedQuery(name = Child.FIND_ACTIVE, query = "FROM Child c WHERE c.active = true")
+        @NamedQuery(name = Child.FIND_ACTIVE, query = "FROM Child c WHERE c.active = true"),
+        @NamedQuery(name = Child.FIND_BY_PARENT, query = "SELECT DISTINCT c FROM Child c INNER JOIN c.parents p WHERE p.id = :parentId")
 })
 public class Child extends User{
 
     public static final String FIND_BY_CLASS = "Child.findByClass";
     public static final String FIND_ACTIVE = "Child.findActive";
+    public static final String FIND_BY_PARENT = "Child.findByParent";
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "school_class_id", nullable = false)

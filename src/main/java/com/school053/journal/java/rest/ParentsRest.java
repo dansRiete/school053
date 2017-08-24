@@ -8,8 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,6 +16,7 @@ import java.util.stream.Collectors;
 @CrossOrigin(origins = "http://localhost:4200")
 public class ParentsRest {
 
+    //todo Logger isn't initialized properly
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private final ParentService parentService;
@@ -30,7 +29,6 @@ public class ParentsRest {
     @GetMapping("/getAll")
     public List<ParentDto> getAll() {
         List<ParentDto> parentDtos = parentService.getAllActive().stream().map(ParentMapper.MAPPER::toDto).collect(Collectors.toList());
-        System.out.println("List<ParentDto> getAll() size = " + parentDtos.size());
         return parentDtos;
     }
 
