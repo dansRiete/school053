@@ -13,7 +13,7 @@ import java.io.Serializable;
 @Table(name="child_marks")
 @NamedQueries({
 	@NamedQuery(name = ChildMark.GET_BY_CHILD_AND_SUBJECT, 
-			query = "FROM ChildMark cm WHEN cm.child.id = :childId cm.lessonEvent.lesson.subject.id = :subjectId")
+			query = "FROM ChildMark cm WHERE cm.child.id = :childId AND cm.lessonEvent.lesson.subject.id = :subjectId")
 })
 public class ChildMark implements Serializable {
     public static final String GET_BY_CHILD_AND_SUBJECT= "ChildMark.getByChildAndSubject";
@@ -32,7 +32,7 @@ public class ChildMark implements Serializable {
     @JoinColumn(name = "child_id")
     private Child child;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private LessonEventType lessonEventType;
 
     @Column(name = "mark")
@@ -114,4 +114,3 @@ public class ChildMark implements Serializable {
 		this.remark = remark;
 	}
 }
-
