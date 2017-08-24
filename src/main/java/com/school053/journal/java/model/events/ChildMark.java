@@ -41,67 +41,77 @@ public class ChildMark implements Serializable {
     @Column(name = "absent")
     private Boolean absent;
 
+    @Column(name = "remark")
     private String remark;
-
-    public ChildMark(LessonEvent lessonEvent, Child child, Integer mark, boolean absent) {
-        this.lessonEvent = lessonEvent;
-        this.child = child;
-        this.mark = mark;
-        this.absent = absent;
-    }
 
     public ChildMark() {
     }
 
-    public ChildMark(Integer mark, Boolean absent) {
-        this.mark = mark;
-        this.absent = absent;
-    }
+	public ChildMark(LessonEvent lessonEvent, Child child, LessonEventType lessonEventType, Integer mark,
+			Boolean absent, String remark) {
+		super();
+		this.lessonEvent = lessonEvent;
+		this.child = child;
+		this.lessonEventType = lessonEventType;
+		this.mark = mark;
+		this.absent = absent;
+		this.remark = remark;
+	}
 
-    public String getId() {
-        return id;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public LessonEvent getLessonEvent() {
-        return lessonEvent;
-    }
+	public LessonEvent getLessonEvent() {
+		return lessonEvent;
+	}
 
-    public void setLessonEvent(LessonEvent lessonEvent) {
-        this.lessonEvent = lessonEvent;
-    }
+	public void setLessonEvent(LessonEvent lessonEvent) {
+		this.lessonEvent = lessonEvent;
+	}
 
-    public Child getChild() {
-        return child;
-    }
+	public Child getChild() {
+		return child;
+	}
 
-    public void setChild(Child child) {
-        this.child = child;
-    }
+	public void setChild(Child child) {
+		this.child = child;
+	}
 
-    public Integer getMark() {
-        return mark;
-    }
+	public LessonEventType getLessonEventType() {
+		return lessonEventType;
+	}
 
-    public String getStringMark() {
-        if (mark == null)
-            return "";
-        return String.valueOf(mark);
-    }
+	public void setLessonEventType(LessonEventType lessonEventType) {
+		this.lessonEventType = lessonEventType;
+	}
 
-    public void setMark(Integer mark) {
-        this.mark = mark;
-    }
+	public Integer getMark() {
+		return mark;
+	}
 
-    public Boolean getAbsent() {
-        return absent;
-    }
+	public void setMark(Integer mark) {
+		this.mark = mark;
+	}
 
-    public void setAbsent(Boolean absent) {
-        this.absent = absent;
-    }
+	public Boolean getAbsent() {
+		return absent;
+	}
+
+	public void setAbsent(Boolean absent) {
+		this.absent = absent;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
 }
 
