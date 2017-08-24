@@ -6,15 +6,14 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.io.Serializable;
 
-/**
- * This class is used to describe child mark entity.
- */
 @Entity
 @Table(name="child_marks")
+@NamedQueries({
+	@NamedQuery(name = ChildMark.GET_BY_CHILD_AND_SUBJECT, 
+			query = "FROM ChildMark cm WHERE cm.child.id = :childId AND cm.lessonEvent.lesson.subject.id = :subjectId")
+})
 public class ChildMark implements Serializable {
-    public static final String SELECT_BY_LESSON_EVENT_ID = "ChildMark.selectByLessonEventId";
-    public static final String GET_BY_CHILD_ID = "ChildMark.getMarksByChildId";
-    public static final String GET_BY_CHILD_ID_AND_DATE_RANGE = "ChildMark.getByChildIdAndDateRange";
+    public static final String GET_BY_CHILD_AND_SUBJECT= "ChildMark.getByChildAndSubject";
 
     @Id
     @GeneratedValue(generator = "UUID")
@@ -30,7 +29,7 @@ public class ChildMark implements Serializable {
     @JoinColumn(name = "child_id")
     private Child child;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private LessonEventType lessonEventType;
 
     @Column(name = "mark")
@@ -39,67 +38,75 @@ public class ChildMark implements Serializable {
     @Column(name = "absent")
     private Boolean absent;
 
+    @Column(name = "remark")
     private String remark;
-
-    public ChildMark(LessonEvent lessonEvent, Child child, Integer mark, boolean absent) {
-        this.lessonEvent = lessonEvent;
-        this.child = child;
-        this.mark = mark;
-        this.absent = absent;
-    }
 
     public ChildMark() {
     }
 
-    public ChildMark(Integer mark, Boolean absent) {
-        this.mark = mark;
-        this.absent = absent;
-    }
+	public ChildMark(LessonEvent lessonEvent, Child child, LessonEventType lessonEventType, Integer mark,
+			Boolean absent, String remark) {
+		this.lessonEvent = lessonEvent;
+		this.child = child;
+		this.lessonEventType = lessonEventType;
+		this.mark = mark;
+		this.absent = absent;
+		this.remark = remark;
+	}
 
-    public String getId() {
-        return id;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public LessonEvent getLessonEvent() {
-        return lessonEvent;
-    }
+	public LessonEvent getLessonEvent() {
+		return lessonEvent;
+	}
 
-    public void setLessonEvent(LessonEvent lessonEvent) {
-        this.lessonEvent = lessonEvent;
-    }
+	public void setLessonEvent(LessonEvent lessonEvent) {
+		this.lessonEvent = lessonEvent;
+	}
 
-    public Child getChild() {
-        return child;
-    }
+	public Child getChild() {
+		return child;
+	}
 
-    public void setChild(Child child) {
-        this.child = child;
-    }
+	public void setChild(Child child) {
+		this.child = child;
+	}
 
-    public Integer getMark() {
-        return mark;
-    }
+	public LessonEventType getLessonEventType() {
+		return lessonEventType;
+	}
 
-    public String getStringMark() {
-        if (mark == null)
-            return "";
-        return String.valueOf(mark);
-    }
+	public void setLessonEventType(LessonEventType lessonEventType) {
+		this.lessonEventType = lessonEventType;
+	}
 
-    public void setMark(Integer mark) {
-        this.mark = mark;
-    }
+	public Integer getMark() {
+		return mark;
+	}
 
-    public Boolean getAbsent() {
-        return absent;
-    }
+	public void setMark(Integer mark) {
+		this.mark = mark;
+	}
 
-    public void setAbsent(Boolean absent) {
-        this.absent = absent;
-    }
+	public Boolean getAbsent() {
+		return absent;
+	}
+
+	public void setAbsent(Boolean absent) {
+		this.absent = absent;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
 }
-
