@@ -13,7 +13,7 @@ public interface ChildMarkMapper {
 	@Mappings({
 		@Mapping(target = "id", source = "childMark.id"),
 		@Mapping(target = "mark", source = "childMark.mark"),
-		@Mapping(target = "childFirstName", source = "childMark.child.firstName"),
+		@Mapping(target = "date", source = "childMark.lessonEvent.eventDate", dateFormat = "dd.MM.yyyy"),
 		@Mapping (target = "lessonEventTypeName", source = "childMark.lessonEventType.name")
 	})
 	ChildMarkDto toDto(ChildMark childMark);

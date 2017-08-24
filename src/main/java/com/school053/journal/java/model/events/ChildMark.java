@@ -6,9 +6,6 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.io.Serializable;
 
-/**
- * This class is used to describe child mark entity.
- */
 @Entity
 @Table(name="child_marks")
 @NamedQueries({
@@ -49,7 +46,6 @@ public class ChildMark implements Serializable {
 
 	public ChildMark(LessonEvent lessonEvent, Child child, LessonEventType lessonEventType, Integer mark,
 			Boolean absent, String remark) {
-		super();
 		this.lessonEvent = lessonEvent;
 		this.child = child;
 		this.lessonEventType = lessonEventType;

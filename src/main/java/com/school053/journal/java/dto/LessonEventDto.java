@@ -1,7 +1,5 @@
 package com.school053.journal.java.dto;
 
-import java.time.LocalDate;
-
 public class LessonEventDto {
 	private String id;
 	private String comment;
