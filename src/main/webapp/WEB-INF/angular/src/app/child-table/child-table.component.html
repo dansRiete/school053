@@ -1,0 +1,37 @@
+<div style="width: 60%">
+
+  <div >
+    <app-parents-dropdown (parentChanged)="changeParent($event)"></app-parents-dropdown>
+  </div>
+
+  <h1 class="mat-h1" style="margin-top: 20pt">{{parentFilter}}</h1>
+
+  <div >
+    <div class="example-container mat-elevation-z8">
+
+      <md-table #table [dataSource]="dataSource">
+
+        <ng-container cdkColumnDef="firstName">
+          <md-header-cell *cdkHeaderCellDef> First Name </md-header-cell>
+          <md-cell *cdkCellDef="let child"> {{child.firstName}} </md-cell>
+        </ng-container>
+
+        <ng-container cdkColumnDef="lastName">
+          <md-header-cell *cdkHeaderCellDef> Last Name </md-header-cell>
+          <md-cell *cdkCellDef="let child"> {{child.lastName}} </md-cell>
+        </ng-container>
+
+        <ng-container cdkColumnDef="patronymic">
+          <md-header-cell *cdkHeaderCellDef>Patronymic</md-header-cell>
+          <md-cell *cdkCellDef="let child"> {{child.patronymic}} </md-cell>
+        </ng-container>
+
+        <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+        <md-row *cdkRowDef="let child; columns: displayedColumns;"></md-row>
+
+      </md-table>
+
+    </div>
+  </div>
+</div>
+

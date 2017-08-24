@@ -1,0 +1,5 @@
+<md-select placeholder="Select parent" [(ngModel)]="selectedParent" (change)="changeParent(selectedParent)" name="parent">
+  <md-option *ngFor="let parent of parents"  [value]="parent">
+    {{ parent.firstName + ' ' + parent.lastName}}
+  </md-option>
+</md-select>
