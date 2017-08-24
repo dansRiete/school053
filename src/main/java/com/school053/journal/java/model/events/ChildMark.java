@@ -11,10 +11,12 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name="child_marks")
+@NamedQueries({
+	@NamedQuery(name = ChildMark.GET_BY_CHILD_AND_SUBJECT, 
+			query = "FROM ChildMark cm WHEN cm.child.id = :childId cm.lessonEvent.lesson.subject.id = :subjectId")
+})
 public class ChildMark implements Serializable {
-    public static final String SELECT_BY_LESSON_EVENT_ID = "ChildMark.selectByLessonEventId";
-    public static final String GET_BY_CHILD_ID = "ChildMark.getMarksByChildId";
-    public static final String GET_BY_CHILD_ID_AND_DATE_RANGE = "ChildMark.getByChildIdAndDateRange";
+    public static final String GET_BY_CHILD_AND_SUBJECT= "ChildMark.getByChildAndSubject";
 
     @Id
     @GeneratedValue(generator = "UUID")
