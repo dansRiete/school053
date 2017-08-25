@@ -11,7 +11,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/child")
-@CrossOrigin(origins = "http://localhost:4200")//todo remove @CrossOrigin
 public class ChildRest {
 
     private final ChildService childService;
@@ -26,10 +25,8 @@ public class ChildRest {
         return ResponseEntity.ok(childService.fetchAll());
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")//todo remove @CrossOrigin
     @RequestMapping(value = "/fetchByParent", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<List<ChildDto>> fetchByParent(@RequestParam("parentId") String parentId) {
-//        System.out.println("Parent id requested = " + parentId);
         return ResponseEntity.ok(childService.fetchByParent(parentId));
     }
 

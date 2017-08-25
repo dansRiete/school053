@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/parent")
-@CrossOrigin(origins = "http://localhost:4200")
 public class ParentsRest {
 
     //todo Logger isn't initialized properly
