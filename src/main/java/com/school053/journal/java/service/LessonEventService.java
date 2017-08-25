@@ -6,8 +6,8 @@ import com.school053.journal.java.dto.LessonEventDto;
 
 public interface LessonEventService {
 	
-	public List<LessonEventDto> getLessonEvents();
+	public List<LessonEventDto> fetchAll();
 	
-	public List<LessonEventDto> getLessonEventsBy(String subject);
+	public List<LessonEventDto> fetchAllBySubjectId(String subject);
 	
 }

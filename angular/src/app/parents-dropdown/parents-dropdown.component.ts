@@ -26,7 +26,7 @@ export class ParentsDropdownComponent implements OnInit {
     const requestOptions: RequestOptions = new RequestOptions();
     const http: Http = new Http(backend, requestOptions);
     this.http = http;
-    this.http.get(`${AppSettings.URL}/parents/getAll`).subscribe(response => this.parents = response.json());
+    this.http.get(`${AppSettings.URL}/parent/fetchAll`).subscribe(response => this.parents = response.json());
   }
 
   changeParent(selectedParent: Parent) {

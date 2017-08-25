@@ -22,14 +22,14 @@ public class LessonEventRest {
 	private LessonEventService lessonEventService;
 
 	@CrossOrigin(origins = "http://localhost:4200")
-	@RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
-	public ResponseEntity<List<LessonEventDto>> getLessonEvent() {
-		return ResponseEntity.ok(lessonEventService.getLessonEvents());
+	@RequestMapping(value = "/fetchAll", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
+	public ResponseEntity<List<LessonEventDto>> fetchAll() {
+		return ResponseEntity.ok(lessonEventService.fetchAll());
 	}
 	
 	@CrossOrigin(origins = "http://localhost:4200")
-	@RequestMapping(value = "/getBySubject", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
-	public ResponseEntity<List<LessonEventDto>> getLessonEventsBy(@RequestParam(value = "subjectId", required = false) String subjectId){
-		return ResponseEntity.ok(lessonEventService.getLessonEventsBy(subjectId));
+	@RequestMapping(value = "/fetchAllBySubjectId", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
+	public ResponseEntity<List<LessonEventDto>> fetchAllBySubjectId(@RequestParam(value = "subjectId", required = false) String subjectId){
+		return ResponseEntity.ok(lessonEventService.fetchAllBySubjectId(subjectId));
 	}
 }

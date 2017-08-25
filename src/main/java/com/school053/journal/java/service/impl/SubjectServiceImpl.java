@@ -41,13 +41,13 @@ public class SubjectServiceImpl implements SubjectService {
 
     @Override
     public SubjectDto getSubject(String id) {
-        return SubjectMapper.MAPPER.toDto(subjectDao.find(id));
+        return SubjectMapper.MAPPER.toDto(subjectDao.fetchBySubjectId(id));
     }
 
     @Override
     public List<SubjectDto> getSubjects() {
         return subjectDao
-                .findAll()
+                .fetchBySubjectId()
                 .stream()
                 .map(SubjectMapper.MAPPER :: toDto)
                 .collect(Collectors.toList());

@@ -4,8 +4,8 @@ import java.util.List;
 
 public interface InterfaceDao<T> {
 
-    T find(String id);
-    List<T> findAll();
+    T fetch(String id);
+    List<T> fetchAll();
     void create(T entity);
     T update(T entity);
     void delete(T entity);

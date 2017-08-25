@@ -21,16 +21,16 @@ public class ChildRest {
         this.childService = childService;
     }
 
-    @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
-    public ResponseEntity<List<ChildDto>> getChildren() {
-        return ResponseEntity.ok(childService.getChildren());
+    @RequestMapping(value = "/fetchAll", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<List<ChildDto>> fetchAll() {
+        return ResponseEntity.ok(childService.fetchAll());
     }
 
     @CrossOrigin(origins = "http://localhost:4200")//todo remove @CrossOrigin
-    @RequestMapping(value = "/getByParent", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
-    public ResponseEntity<List<ChildDto>> getChildrenByParent(@RequestParam("parentId") String parentId) {
+    @RequestMapping(value = "/fetchAllByParent", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<List<ChildDto>> fetchAllByParent(@RequestParam("parentId") String parentId) {
 //        System.out.println("Parent id requested = " + parentId);
-        return ResponseEntity.ok(childService.getByParent(parentId));
+        return ResponseEntity.ok(childService.fetchAllByParent(parentId));
     }
 
 

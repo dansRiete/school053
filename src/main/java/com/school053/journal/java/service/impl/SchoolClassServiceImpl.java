@@ -19,20 +19,20 @@ public class SchoolClassServiceImpl implements SchoolClassService {
     public SchoolClassDao schoolClassDao;
 
     @Override
-    public List<SchoolClassDto> getClasses() {
-        return schoolClassDao.findAll().stream().
+    public List<SchoolClassDto> fetchAll() {
+        return schoolClassDao.fetchAll().stream().
                 map(SchoolClassMapper.MAPPER :: toDto).collect(Collectors.toList());
     }
 
     @Transactional
-    public void add(SchoolClassDto classDto) {
+    public void create(SchoolClassDto classDto) {
         SchoolClass schoolClass = SchoolClassMapper.MAPPER.fromDto(classDto);
         schoolClassDao.create(schoolClass);
     }
 
     @Override
-    public List<SchoolClassDto> findActiveByName() {
-        return schoolClassDao.findActiveByName().stream()
+    public List<SchoolClassDto> fetchAllActiveByName() {
+        return schoolClassDao.fetchAllActiveByName().stream()
                 .map(SchoolClassMapper.MAPPER :: toDto).collect(Collectors.toList());
     }
 }

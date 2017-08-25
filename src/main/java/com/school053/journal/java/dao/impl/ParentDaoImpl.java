@@ -14,7 +14,7 @@ import java.util.List;
 public class ParentDaoImpl extends AbstractDao<Parent> implements ParentDao {
 
     @Override
-    public List<Parent> getAll() {
+    public List<Parent> fetchAll() {
         return entityManager
                 .createNamedQuery(Parent.FIND_ACTIVE, Parent.class)
                 .getResultList();

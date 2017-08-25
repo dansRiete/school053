@@ -19,8 +19,8 @@ public class ChildMarkServiceImpl implements ChildMarkService {
 	private ChildMarkDao childMarkDao;
 
 	@Override
-	public List<ChildMarkDto> getBy(String childId, String subjectId) {
-		return childMarkDao.findBy(childId, subjectId).stream().map(Mappers.getMapper(ChildMarkMapper.class)::toDto)
+	public List<ChildMarkDto> fetchBySubjectId(String childId, String subjectId) {
+		return childMarkDao.fetchBySubjectId(childId, subjectId).stream().map(Mappers.getMapper(ChildMarkMapper.class)::toDto)
 				.collect(Collectors.toList());
 	}
 }

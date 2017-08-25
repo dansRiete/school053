@@ -38,14 +38,12 @@ export class ExampleDatabase {
   /** Stream that emits whenever the data has been modified. */
   dataChange: BehaviorSubject<SchoolClass[]> = new BehaviorSubject<SchoolClass[]>([]);
   get data(): SchoolClass[] { return this.dataChange.value; }
-  private urlApi: string;
   private http: Http;
   private service: AppService;
   classes: SchoolClass[];
   constructor(http: Http) {
     this.http = http;
-    this.urlApi = 'classes/getAllByName';
-    this.http.get(AppSettings.URL + this.urlApi).subscribe(response => this.dataChange.next(response.json()));
+    this.http.get(AppSettings.URL + 'school-class/fetchAllActiveByName').subscribe(response => this.dataChange.next(response.json()));
   }
 }
 export class ExampleDataSource extends DataSource<any> {

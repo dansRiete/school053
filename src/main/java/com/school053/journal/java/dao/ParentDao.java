@@ -9,6 +9,6 @@ import java.util.List;
  */
 public interface ParentDao {
 
-    List<Parent> getAll();
+    List<Parent> fetchAll();
 
 }

@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/parents")
+@RequestMapping("/parent")
 @CrossOrigin(origins = "http://localhost:4200")
 public class ParentsRest {
 
@@ -25,9 +25,9 @@ public class ParentsRest {
         this.parentService = parentService;
     }
 
-    @GetMapping("/getAll")
-    public List<ParentDto> getAll() {
-        List<ParentDto> parentDtos = parentService.getAllActive().stream().map(ParentMapper.MAPPER::toDto).collect(Collectors.toList());
+    @GetMapping("/fetchAll")
+    public List<ParentDto> fetchAll() {
+        List<ParentDto> parentDtos = parentService.fetchAll().stream().map(ParentMapper.MAPPER::toDto).collect(Collectors.toList());
         return parentDtos;
     }
 
