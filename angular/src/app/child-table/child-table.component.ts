@@ -53,7 +53,7 @@ export class ExampleDatabase {
     this.http.get(AppSettings.URL + '/child/getAll').subscribe(response => this.dataChange.next(response.json()));
   }
   reloadChildren(parentId: string) {
-    this.http.get(`http://localhost:8081/child/getByParent?parentId=${parentId}`)
+    this.http.get(`${AppSettings.URL}/child/getByParent?parentId=${parentId}`)
       .subscribe(response => this.dataChange.next(response.json()));
   }
 }

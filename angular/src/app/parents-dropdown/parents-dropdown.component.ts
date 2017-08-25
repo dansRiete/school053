@@ -3,6 +3,7 @@ import {BrowserXhr, CookieXSRFStrategy, Http, RequestOptions, ResponseOptions, X
 import 'rxjs/Rx';
 import {Parent} from './parent.model';
 import {MdSelectModule} from '@angular/material';
+import {AppSettings} from "../app.settings";
 
 
 @Component({
@@ -25,7 +26,7 @@ export class ParentsDropdownComponent implements OnInit {
     const requestOptions: RequestOptions = new RequestOptions();
     const http: Http = new Http(backend, requestOptions);
     this.http = http;
-    this.http.get(`http://localhost:8081/parents/getAll`).subscribe(response => this.parents = response.json());
+    this.http.get(`${AppSettings.URL}/parents/getAll`).subscribe(response => this.parents = response.json());
   }
 
   changeParent(selectedParent: Parent) {
