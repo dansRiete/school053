@@ -20,12 +20,12 @@ public class ChildRest {
         this.childService = childService;
     }
 
-    @RequestMapping(value = "/fetchAll", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
+    @GetMapping(value = "/fetchAll")
     public ResponseEntity<List<ChildDto>> fetchAll() {
         return ResponseEntity.ok(childService.fetchAll());
     }
 
-    @RequestMapping(value = "/fetchByParent", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
+    @GetMapping(value = "/fetchByParent")
     public ResponseEntity<List<ChildDto>> fetchByParent(@RequestParam("parentId") String parentId) {
         return ResponseEntity.ok(childService.fetchByParent(parentId));
     }
