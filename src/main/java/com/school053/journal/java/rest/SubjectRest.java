@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/subject")
-public class Subject {
+public class SubjectRest {
 
     @Autowired
     private SubjectService subjectService;

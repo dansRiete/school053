@@ -54,7 +54,6 @@ import {MdAutocompleteModule,
   MdToolbarModule,
   MdTooltipModule} from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
-import { StucentByClassTableComponent } from './stucent-by-class-table/stucent-by-class-table.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'children', pathMatch: 'full' },
@@ -73,8 +72,7 @@ const routes: Routes = [
     ParentsDropdownComponent,
     NavigationComponent,
     SchoolClassTableComponent,
-    AddClassComponent,
-    StucentByClassTableComponent,
+    AddClassComponent
   ],
   imports: [
     BrowserModule,

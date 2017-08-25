@@ -8,5 +8,7 @@ import java.util.List;
  * Created by Aleks on 21.08.2017.
  */
 public interface ParentDao {
+
     List<Parent> getAll();
+
 }

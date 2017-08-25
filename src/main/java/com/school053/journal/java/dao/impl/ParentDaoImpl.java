@@ -12,6 +12,7 @@ import java.util.List;
  */
 @Repository(value = "ParentDao")
 public class ParentDaoImpl extends AbstractDao<Parent> implements ParentDao {
+
     @Override
     public List<Parent> getAll() {
         return entityManager

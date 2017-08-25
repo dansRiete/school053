@@ -16,20 +16,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/classes")
 @CrossOrigin(origins = "http://localhost:4200")
-public class SchoolClasses {
+public class SchoolClassesRest {
     @Autowired
     private SchoolClassService classService;
 
     @Autowired
     private ChildService childService;
-
-    /*@GetMapping("/getAllClasses")
-    public ClassAndChildDto getAll() {
-        List<SchoolClass> schoolClassList = classService.getAllActive();
-        List<Child> children = childService.getAllActive();
-        return new ClassAndChildDto(schoolClassList, children);
-    }*/
-
 
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })

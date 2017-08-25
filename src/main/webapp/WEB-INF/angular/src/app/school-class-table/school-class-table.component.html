@@ -1,25 +1,25 @@
 <div style="width: 60%">
-<div class="example-container mat-elevation-z8">
-  <md-toolbar>
-    <span>All active classes</span>
-  </md-toolbar>
-  <md-table #table [dataSource]="dataSource">
-    <!--class number column-->
-    <ng-container cdkColumnDef="name">
-      <md-header-cell *cdkHeaderCellDef> Class Number </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.name}} </md-cell>
-    </ng-container>
-    <!--curator column-->
-    <ng-container cdkColumnDef="curator">
-      <md-header-cell *cdkHeaderCellDef> Curator </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.curatorFirstName}} {{row.curatorLastName}}</md-cell>
-    </ng-container>
-    <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
-    <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
-  </md-table>
-</div><br>
-<div align="center">
-  <button class="btnAddClass" md-raised-button routerLink="/addClass"><h3>Add new class</h3></button>
-</div>
+  <h1 class="mat-h1" style="margin-top: 20pt">Active classes</h1>
+  <div class="example-container mat-elevation-z8">
+
+    <md-table #table [dataSource]="dataSource">
+      <!--class number column-->
+      <ng-container cdkColumnDef="name">
+        <md-header-cell *cdkHeaderCellDef>Class</md-header-cell>
+        <md-cell *cdkCellDef="let row"> {{row.name}}</md-cell>
+      </ng-container>
+      <!--curator column-->
+      <ng-container cdkColumnDef="curator">
+        <md-header-cell *cdkHeaderCellDef>Curator</md-header-cell>
+        <md-cell *cdkCellDef="let row"> {{row.curatorFirstName}} {{row.curatorLastName}}</md-cell>
+      </ng-container>
+      <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+      <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
+    </md-table>
+  </div>
+  <br>
+  <div align="right">
+    <button md-raised-button routerLink="/addClass"><h3>Create new</h3></button>
+  </div>
 </div>
 
