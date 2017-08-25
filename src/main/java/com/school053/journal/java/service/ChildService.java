@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface ChildService {
     List<ChildDto> fetchAll();
-    List<ChildDto> fetchAllByParent(String parentId);
+    List<ChildDto> fetchByParent(String parentId);
     void create(Child child);
     void delete(int id);
-    List<ChildDto> fetchAllByClass(String id);
+    List<ChildDto> fetchByClass(String id);
 }

@@ -27,10 +27,10 @@ public class ChildRest {
     }
 
     @CrossOrigin(origins = "http://localhost:4200")//todo remove @CrossOrigin
-    @RequestMapping(value = "/fetchAllByParent", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
-    public ResponseEntity<List<ChildDto>> fetchAllByParent(@RequestParam("parentId") String parentId) {
+    @RequestMapping(value = "/fetchByParent", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<List<ChildDto>> fetchByParent(@RequestParam("parentId") String parentId) {
 //        System.out.println("Parent id requested = " + parentId);
-        return ResponseEntity.ok(childService.fetchAllByParent(parentId));
+        return ResponseEntity.ok(childService.fetchByParent(parentId));
     }
 
 

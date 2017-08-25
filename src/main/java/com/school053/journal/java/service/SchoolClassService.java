@@ -7,5 +7,5 @@ import java.util.List;
 public interface SchoolClassService {
     List<SchoolClassDto> fetchAll();
     void create(SchoolClassDto SchoolClassDto);
-    List<SchoolClassDto> fetchAllActiveByName();
+    List<SchoolClassDto> fetchActiveByName();
 }

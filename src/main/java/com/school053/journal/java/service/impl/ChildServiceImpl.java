@@ -23,8 +23,8 @@ public class ChildServiceImpl implements ChildService {
     }
 
     @Override
-    public List<ChildDto> fetchAllByParent(String parentId) {
-        return childDao.fetchAllByParent(parentId).stream().map(ChildMapper.MAPPER :: toDto).collect(Collectors.toList());
+    public List<ChildDto> fetchByParent(String parentId) {
+        return childDao.fetchByParent(parentId).stream().map(ChildMapper.MAPPER :: toDto).collect(Collectors.toList());
     }
 
     @Override
@@ -38,7 +38,7 @@ public class ChildServiceImpl implements ChildService {
     }
 
     @Override
-    public List<ChildDto> fetchAllByClass(String id) {
-        return childDao.fetchAllByClass(id).stream().map(ChildMapper.MAPPER :: toDto).collect(Collectors.toList());
+    public List<ChildDto> fetchByClass(String id) {
+        return childDao.fetchByClass(id).stream().map(ChildMapper.MAPPER :: toDto).collect(Collectors.toList());
     }
 }

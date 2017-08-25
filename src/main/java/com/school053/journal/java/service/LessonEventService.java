@@ -8,6 +8,6 @@ public interface LessonEventService {
 	
 	public List<LessonEventDto> fetchAll();
 	
-	public List<LessonEventDto> fetchAllBySubjectId(String subject);
+	public List<LessonEventDto> fetchBySubjectId(String subject);
 	
 }

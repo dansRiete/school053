@@ -25,8 +25,8 @@ public class LessonEventServiceImpl implements LessonEventService {
 	}
 
 	@Override
-	public List<LessonEventDto> fetchAllBySubjectId(final String subjectId) {
-		return lessonEventDao.fetchAllBySubjectId(subjectId).stream().map(Mappers.getMapper(LessonEventMapper.class)::toDto)
+	public List<LessonEventDto> fetchBySubjectId(final String subjectId) {
+		return lessonEventDao.fetchBySubjectId(subjectId).stream().map(Mappers.getMapper(LessonEventMapper.class)::toDto)
 				.collect(Collectors.toList());
 	}
 }

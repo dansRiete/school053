@@ -28,8 +28,8 @@ public class LessonEventRest {
 	}
 	
 	@CrossOrigin(origins = "http://localhost:4200")
-	@RequestMapping(value = "/fetchAllBySubjectId", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
-	public ResponseEntity<List<LessonEventDto>> fetchAllBySubjectId(@RequestParam(value = "subjectId", required = false) String subjectId){
-		return ResponseEntity.ok(lessonEventService.fetchAllBySubjectId(subjectId));
+	@RequestMapping(value = "/fetchBySubjectId", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
+	public ResponseEntity<List<LessonEventDto>> fetchBySubjectId(@RequestParam(value = "subjectId", required = false) String subjectId){
+		return ResponseEntity.ok(lessonEventService.fetchBySubjectId(subjectId));
 	}
 }

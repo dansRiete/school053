@@ -31,8 +31,8 @@ public class SchoolClassServiceImpl implements SchoolClassService {
     }
 
     @Override
-    public List<SchoolClassDto> fetchAllActiveByName() {
-        return schoolClassDao.fetchAllActiveByName().stream()
+    public List<SchoolClassDto> fetchActiveByName() {
+        return schoolClassDao.fetchActiveByName().stream()
                 .map(SchoolClassMapper.MAPPER :: toDto).collect(Collectors.toList());
     }
 }

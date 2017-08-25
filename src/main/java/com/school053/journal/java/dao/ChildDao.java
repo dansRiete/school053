@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ChildDao extends InterfaceDao<Child> {
 	
-    List<Child> fetchAllActive();
-    List<Child> fetchAllByClass(String classId);
-    List<Child> fetchAllByParent(String parentId);
+    List<Child> fetchActive();
+    List<Child> fetchByClass(String classId);
+    List<Child> fetchByParent(String parentId);
 }

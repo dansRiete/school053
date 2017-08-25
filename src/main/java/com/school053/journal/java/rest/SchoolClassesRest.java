@@ -21,9 +21,9 @@ public class SchoolClassesRest {
         return ResponseEntity.ok(schoolClassService.fetchAll());
     }
 
-    @RequestMapping(value = "/fetchAllActiveByName", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    @RequestMapping(value = "/fetchActiveByName", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<List<SchoolClassDto>> fetchAllActiveByName() {
-        return ResponseEntity.ok(schoolClassService.fetchAllActiveByName());
+        return ResponseEntity.ok(schoolClassService.fetchActiveByName());
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST, produces = { MediaType.APPLICATION_JSON_VALUE })
