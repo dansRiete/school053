@@ -6,6 +6,7 @@ import {AppService} from '../app.service';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';
 import {DataSource} from '@angular/cdk/table';
+import {AppSettings} from "../app.settings";
 
 @Component({
   selector: 'app-class',
@@ -44,7 +45,7 @@ export class ExampleDatabase {
   classes: SchoolClass[];
   constructor(http: Http) {
     this.http = http;
-    this.url = 'http://localhost:8081/';
+    this.url = AppSettings.URL;
     this.urlApi = 'classes/getAllByName';
     this.http.get(this.url + this.urlApi).subscribe(response => this.dataChange.next(response.json()));
   }

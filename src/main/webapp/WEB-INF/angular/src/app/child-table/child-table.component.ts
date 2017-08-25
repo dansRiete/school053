@@ -6,6 +6,7 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
 import {Parent} from '../parents-dropdown/parent.model';
+import {AppSettings} from "../app.settings";
 
 @Component({
   selector: 'app-child-table',
@@ -49,7 +50,7 @@ export class ExampleDatabase {
 
   constructor(http: Http) {
     this.http = http;
-    this.http.get(`http://localhost:8081/child/getAll`).subscribe(response => this.dataChange.next(response.json()));
+    this.http.get(AppSettings.URL + '/child/getAll`).subscribe(response => this.dataChange.next(response.json()));
   }
 
   reloadChildren(parentId: string) {

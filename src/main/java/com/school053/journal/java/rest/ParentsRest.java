@@ -2,7 +2,6 @@ package com.school053.journal.java.rest;
 
 import com.school053.journal.java.dto.ParentDto;
 import com.school053.journal.java.mapper.ParentMapper;
-import com.school053.journal.java.model.users.Parent;
 import com.school053.journal.java.service.ParentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
