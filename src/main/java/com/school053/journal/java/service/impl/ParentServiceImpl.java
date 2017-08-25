@@ -20,7 +20,7 @@ public class ParentServiceImpl implements ParentService {
     }
 
     @Override
-    public List<Parent> getAllActive() {
-        return parentDao.getAll();
+    public List<Parent> fetchAll() {
+        return parentDao.fetchAll();
     }
 }

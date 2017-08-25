@@ -19,14 +19,14 @@ public class LessonEventServiceImpl implements LessonEventService {
 	private LessonEventDao lessonEventDao;
 
 	@Override
-	public List<LessonEventDto> getLessonEvents() {
-		return lessonEventDao.findAll().stream().map(Mappers.getMapper(LessonEventMapper.class)::toDto)
+	public List<LessonEventDto> fetchAll() {
+		return lessonEventDao.fetchAll().stream().map(Mappers.getMapper(LessonEventMapper.class)::toDto)
 				.collect(Collectors.toList());
 	}
 
 	@Override
-	public List<LessonEventDto> getLessonEventsBy(final String subjectId) {
-		return lessonEventDao.findLessonEventsBy(subjectId).stream().map(Mappers.getMapper(LessonEventMapper.class)::toDto)
+	public List<LessonEventDto> fetchBySubjectId(final String subjectId) {
+		return lessonEventDao.fetchBySubjectId(subjectId).stream().map(Mappers.getMapper(LessonEventMapper.class)::toDto)
 				.collect(Collectors.toList());
 	}
 }

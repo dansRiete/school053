@@ -15,7 +15,7 @@ import java.util.List;
 })
 public class SchoolClass implements Serializable {
 
-    public static final String FIND_ACTIVE_BY_NAME = "SchoolClass.findActiveByName";
+    public static final String FIND_ACTIVE_BY_NAME = "SchoolClass.fetchActiveByName";
 
     @Id
     @GeneratedValue(generator = "UUID")

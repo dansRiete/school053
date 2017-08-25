@@ -12,7 +12,7 @@ import com.school053.journal.java.model.events.LessonEvent;
 public class LessonEventDaoImpl extends AbstractDao<LessonEvent> implements LessonEventDao{
 	
 	@Override
-	public List<LessonEvent> findLessonEventsBy(final String subjectId) {
+	public List<LessonEvent> fetchBySubjectId(final String subjectId) {
         return entityManager
                 .createNamedQuery(LessonEvent.FIND_BY_CHILD_SUBJECT, LessonEvent.class)
                 .setParameter("subjectId", subjectId)

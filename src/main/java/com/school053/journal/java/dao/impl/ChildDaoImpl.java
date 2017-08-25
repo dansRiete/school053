@@ -11,14 +11,14 @@ import java.util.List;
 public class ChildDaoImpl extends AbstractDao<Child> implements ChildDao {
 
     @Override
-    public List<Child> getActiveChildren() {
+    public List<Child> fetchActive() {
         return entityManager
                 .createNamedQuery(Child.FIND_ACTIVE, Child.class)
                 .getResultList();
     }
 
     @Override
-    public List<Child> getChildrenByClass(String classId) {
+    public List<Child> fetchByClass(String classId) {
         return entityManager
                 .createNamedQuery(Child.FIND_BY_CLASS, Child.class)
                 .setParameter("classId", classId)
@@ -26,7 +26,7 @@ public class ChildDaoImpl extends AbstractDao<Child> implements ChildDao {
     }
 
     @Override
-    public List<Child> getChildrenByParent(String parentId) {
+    public List<Child> fetchByParent(String parentId) {
         return entityManager
                 .createNamedQuery(Child.FIND_BY_PARENT, Child.class)
                 .setParameter("parentId", parentId)

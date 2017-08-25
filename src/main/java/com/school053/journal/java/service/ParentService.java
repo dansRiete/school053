@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface ParentService {
 
-    List<Parent> getAllActive();
+    List<Parent> fetchAll();
 }

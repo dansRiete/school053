@@ -6,11 +6,9 @@ import com.school053.journal.java.model.users.Child;
 import java.util.List;
 
 public interface ChildService {
-    List<ChildDto> getChildren();
-    ChildDto getById(int id);
-    List<ChildDto> getByParent(String parentId);
-    void createChild(Child child);
-    void deleteChild(int id);
-    List<Child> getAllActive();
-    List<ChildDto> getChildrenByClass(String id);
+    List<ChildDto> fetchAll();
+    List<ChildDto> fetchByParent(String parentId);
+    void create(Child child);
+    void delete(int id);
+    List<ChildDto> fetchByClass(String id);
 }

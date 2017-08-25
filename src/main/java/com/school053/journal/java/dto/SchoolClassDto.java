@@ -5,7 +5,6 @@ public class SchoolClassDto {
     private String name;
     private String curatorLastName;
     private String curatorFirstName;
-    private String curator;
     private String active;
 
     public SchoolClassDto() {}
@@ -16,14 +15,6 @@ public class SchoolClassDto {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    @Override
-    public String toString() {
-        return "SchoolClassDto{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                '}';
     }
 
     public String getName() {

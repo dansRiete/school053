@@ -11,7 +11,7 @@ import java.util.List;
 public class SchoolClassDaoImpl extends AbstractDao<SchoolClass> implements SchoolClassDao {
 
     @Override
-    public List<SchoolClass> findActiveByName() {
+    public List<SchoolClass> fetchActiveByName() {
         return entityManager
                 .createNamedQuery(SchoolClass.FIND_ACTIVE_BY_NAME, SchoolClass.class)
                 .getResultList();

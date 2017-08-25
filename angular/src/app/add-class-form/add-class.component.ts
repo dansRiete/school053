@@ -10,22 +10,11 @@ import {BrowserXhr, CookieXSRFStrategy, Http, RequestOptions, ResponseOptions, X
 })
 export class AddClassComponent implements OnInit {
   private postData: string;
-  private http: Http;
-  private url: string;
-  private urlApi: string;
+
   constructor(private service: AppService) {
-    /*const browserXhr: BrowserXhr = new BrowserXhr();
-    const baseResponseOptions: ResponseOptions = new ResponseOptions();
-    const xsrfStrategy: CookieXSRFStrategy = new CookieXSRFStrategy();
-    const backend: XHRBackend = new XHRBackend(browserXhr, baseResponseOptions, xsrfStrategy);
-    const requestOptions: RequestOptions = new RequestOptions();
-    const http: Http = new Http(backend, requestOptions);
-    this.http = http;
-    this.url = service.getUrl();
-    this.urlApi = 'classes/getAllTeacherNoActive';*/
   }
   addClass(name: string) {
-    this.service.postJSON(new SchoolClass(name), 'classes/addClass').subscribe(
+    this.service.postJSON(new SchoolClass(name), 'school-class/create').subscribe(
       data => this.postData = JSON.parse(data),
       error => alert(error),
       () => console.log('Finished')

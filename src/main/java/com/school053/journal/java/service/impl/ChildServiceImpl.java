@@ -18,37 +18,27 @@ public class ChildServiceImpl implements ChildService {
     private ChildDao childDao;
 
     @Override
-    public List<ChildDto> getChildren() {
-        return childDao.findAll().stream().map(ChildMapper.MAPPER :: toDto).collect(Collectors.toList());
+    public List<ChildDto> fetchAll() {
+        return childDao.fetchAll().stream().map(ChildMapper.MAPPER :: toDto).collect(Collectors.toList());
     }
 
     @Override
-    public ChildDto getById(int id) {
-        return null;//todo
+    public List<ChildDto> fetchByParent(String parentId) {
+        return childDao.fetchByParent(parentId).stream().map(ChildMapper.MAPPER :: toDto).collect(Collectors.toList());
     }
 
     @Override
-    public List<ChildDto> getByParent(String parentId) {
-        return childDao.getChildrenByParent(parentId).stream().map(ChildMapper.MAPPER :: toDto).collect(Collectors.toList());
-    }
-
-    @Override
-    public void createChild(Child child) {
+    public void create(Child child) {
         //todo
     }
 
     @Override
-    public void deleteChild(int id) {
+    public void delete(int id) {
         //todo
     }
 
     @Override
-    public List<Child> getAllActive() {
-        return childDao.findAll();
-    }
-
-    @Override
-    public List<ChildDto> getChildrenByClass(String id) {
-        return childDao.getChildrenByClass(id).stream().map(ChildMapper.MAPPER :: toDto).collect(Collectors.toList());
+    public List<ChildDto> fetchByClass(String id) {
+        return childDao.fetchByClass(id).stream().map(ChildMapper.MAPPER :: toDto).collect(Collectors.toList());
     }
 }
