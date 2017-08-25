@@ -1,3 +1,4 @@
+/*
 package com.school053.journal.java.rest;
 
 import com.school053.journal.java.dto.SubjectDto;
@@ -25,3 +26,4 @@ public class SubjectRest {
         return ResponseEntity.ok(subjects);
     }
 }
+*/

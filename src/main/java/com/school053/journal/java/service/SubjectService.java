@@ -1,3 +1,4 @@
+/*
 package com.school053.journal.java.service;
 
 import com.school053.journal.java.dto.SubjectDto;
@@ -15,3 +16,4 @@ public interface SubjectService {
 
     List<SubjectDto> getSubjects();
 }
+*/

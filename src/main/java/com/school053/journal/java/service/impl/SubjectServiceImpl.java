@@ -1,3 +1,4 @@
+/*
 package com.school053.journal.java.service.impl;
 
 import com.school053.journal.java.dao.SubjectDao;
@@ -15,7 +16,9 @@ import java.util.stream.Collectors;
 @Service
 public class SubjectServiceImpl implements SubjectService {
 
-    @Autowired
+    */
+/*@Autowired*//*
+
     public SubjectDao subjectDao;
 
     public void setSubjectDao(SubjectDao subjectDao) {
@@ -50,3 +53,4 @@ public class SubjectServiceImpl implements SubjectService {
                 .collect(Collectors.toList());
     }
 }
+*/

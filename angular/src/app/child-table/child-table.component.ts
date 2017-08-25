@@ -50,9 +50,8 @@ export class ExampleDatabase {
 
   constructor(http: Http) {
     this.http = http;
-    this.http.get(AppSettings.URL + '/child/getAll`).subscribe(response => this.dataChange.next(response.json()));
+    this.http.get(AppSettings.URL + '/child/getAll').subscribe(response => this.dataChange.next(response.json()));
   }
-
   reloadChildren(parentId: string) {
     this.http.get(`http://localhost:8081/child/getByParent?parentId=${parentId}`)
       .subscribe(response => this.dataChange.next(response.json()));
