@@ -14,11 +14,11 @@ import {AppSettings} from "../app.settings";
   styleUrls: ['./child-table.component.css']
 })
 export class ChildTableComponent implements OnInit {
-  private http: Http;
-  private displayedColumns = ['firstName', 'lastName', 'patronymic'];
-  private childrenDatabase: ExampleDatabase;
-  public dataSource: ExampleDataSource | null;
-  public parentFilter = 'All children';
+  http: Http;
+  displayedColumns = ['firstName', 'lastName', 'patronymic'];
+  childrenDatabase: ExampleDatabase;
+  dataSource: ExampleDataSource | null;
+  parentFilter = 'All children';
 
   ngOnInit() {
     this.dataSource = new ExampleDataSource(this.childrenDatabase);

@@ -13,10 +13,10 @@ import {AppSettings} from "../app.settings";
 })
 export class ParentsDropdownComponent implements OnInit {
 
-  private parents: Parent[];
-  private http: Http;
-  private selectedParent: string;
-  @Output() private parentChanged = new EventEmitter();
+  parents: Parent[];
+  http: Http;
+  selectedParent: Parent;
+  @Output() parentChanged = new EventEmitter();
 
   constructor() {
     const browserXhr: BrowserXhr = new BrowserXhr();
