@@ -268,23 +268,23 @@ INSERT INTO authorities (name)
 VALUES ('TEACHER'),('ADMIN'),('PARENT'),('CHILD');
 
 INSERT INTO users (id, nickname, password, active, first_name, last_name, patronymic, phone_number, email) VALUES
-  ('200', 'lapid', '$2a$10$LNN9IAXzujgcy.NtpkFYie3Ay4u3Xtm9lnTn6Q8f7uc1iPYlh.T8G', TRUE, 'Megan', 'Jordan', 'Cornett',
+  ('200', 'teacher1', '$2a$10$LNN9IAXzujgcy.NtpkFYie3Ay4u3Xtm9lnTn6Q8f7uc1iPYlh.T8G', TRUE, 'Megan', 'Jordan', 'Cornett',
    '+380994789623', 'email@gmail.com'),
-  ('201', 'imche', '$2a$10$3RaZqHqE.U1Fd0v79xe6aOrg5vEtvvdxJKuuPYgh9OydmSEBNTM/u', TRUE, 'Paul', 'Ward', 'Campbell',
+  ('201', 'admin', '$2a$10$3RaZqHqE.U1Fd0v79xe6aOrg5vEtvvdxJKuuPYgh9OydmSEBNTM/u', TRUE, 'Paul', 'Ward', 'Campbell',
    '+380745691281', 'campward@gmail.com'),
-  ('202', 'omstr', '$2a$10$8fpc82lh/Gay2R47bkGor.YzNSO5qUSpFOANRW5L6lpg.wlmCiJia', TRUE, 'Steve', 'Parker', 'Matthews',
+  ('202', 'parent1', '$2a$10$8fpc82lh/Gay2R47bkGor.YzNSO5qUSpFOANRW5L6lpg.wlmCiJia', TRUE, 'Steve', 'Parker', 'Matthews',
    '+380696324281', 'mattp@gmail.com'),
-  ('203', 'lapid1', '$2a$10$LNN9IAXzujgcy.NtpkFYie3Ay4u3Xtm9lnTn6Q8f7uc1iPYlh.T8G', TRUE, 'Albert', 'Smith', 'Dixon',
+  ('203', 'parent2', '$2a$10$LNN9IAXzujgcy.NtpkFYie3Ay4u3Xtm9lnTn6Q8f7uc1iPYlh.T8G', TRUE, 'Albert', 'Smith', 'Dixon',
    '+380659459881', 'name@gmail.com'),
-  ('204', 'lapid2', '$2a$10$LNN9IAXzujgcy.NtpkFYie3Ay4u3Xtm9lnTn6Q8f7uc1iPYlh.T8G', TRUE, 'John', 'Williams', 'Russell',
+  ('204', 'child1', '$2a$10$LNN9IAXzujgcy.NtpkFYie3Ay4u3Xtm9lnTn6Q8f7uc1iPYlh.T8G', TRUE, 'John', 'Williams', 'Russell',
    '+380658954281', 'wilrust@gmail.com'),
-  ('205', 'lapid3', '$2a$10$LNN9IAXzujgcy.NtpkFYie3Ay4u3Xtm9lnTn6Q8f7uc1iPYlh.T8G', TRUE, 'David', 'Evans', 'Fisher',
+  ('205', 'child2', '$2a$10$LNN9IAXzujgcy.NtpkFYie3Ay4u3Xtm9lnTn6Q8f7uc1iPYlh.T8G', TRUE, 'David', 'Evans', 'Fisher',
    '+380669874281', 'evfish@gmail.com'),
-  ('206', 'lapid4', '$2a$10$LNN9IAXzujgcy.NtpkFYie3Ay4u3Xtm9lnTn6Q8f7uc1iPYlh.T8G', TRUE, 'Matt', 'Walker', 'Pearson',
+  ('206', 'child3', '$2a$10$LNN9IAXzujgcy.NtpkFYie3Ay4u3Xtm9lnTn6Q8f7uc1iPYlh.T8G', TRUE, 'Matt', 'Walker', 'Pearson',
    '+380612345681', 'walkpear@gmail.com'),
-  ('207', 'lapid5', '$2a$10$LNN9IAXzujgcy.NtpkFYie3Ay4u3Xtm9lnTn6Q8f7uc1iPYlh.T8G', TRUE, 'Jack', 'Lewis', 'Palmer',
+  ('207', 'child4', '$2a$10$LNN9IAXzujgcy.NtpkFYie3Ay4u3Xtm9lnTn6Q8f7uc1iPYlh.T8G', TRUE, 'Jack', 'Lewis', 'Palmer',
    '+380684365281', 'palmlew@gmail.com'),
-  ('208', 'lapid6', '$2a$10$LNN9IAXzujgcy.NtpkFYie3Ay4u3Xtm9lnTn6Q8f7uc1iPYlh.T8G', TRUE, 'Mike', 'Clarke', 'Walsh',
+  ('208', 'unknown', '$2a$10$LNN9IAXzujgcy.NtpkFYie3Ay4u3Xtm9lnTn6Q8f7uc1iPYlh.T8G', TRUE, 'Mike', 'Clarke', 'Walsh',
    '+380823954281', 'clarkew@gmail.com');
 
 INSERT INTO sec_user_authority (user_id, authority_name) VALUES
@@ -299,8 +299,8 @@ INSERT INTO sec_user_authority (user_id, authority_name) VALUES
   ('207', 'CHILD');
 
 INSERT INTO teachers (id, description) VALUES
-  ('200', 'kjfkjfsks'),
-  ('201', 'desctiption1');
+  ('200', 'Just teacher'),
+  ('201', 'Head of studies');
 
 INSERT INTO school_classes (id, name, studying_end, studying_start, active, curator_id) VALUES
   ('1', '6a', '01-01-2017', '01-01-2020', TRUE, '200'),
