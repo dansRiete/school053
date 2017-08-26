@@ -18,8 +18,12 @@ import com.school053.journal.java.service.LessonEventService;
 @RequestMapping("/lesson-event")
 public class LessonEventRest {
 
+	private final LessonEventService lessonEventService;
+
 	@Autowired
-	private LessonEventService lessonEventService;
+	public LessonEventRest(LessonEventService lessonEventService) {
+		this.lessonEventService = lessonEventService;
+	}
 
 	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })

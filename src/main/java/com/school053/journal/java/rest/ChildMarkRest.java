@@ -18,9 +18,13 @@ import com.school053.journal.java.service.ChildMarkService;
 @RequestMapping("/marks")
 public class ChildMarkRest {
 	
+	private final ChildMarkService childMarkService;
+
 	@Autowired
-	private ChildMarkService childMarkService;
-	
+	public ChildMarkRest(ChildMarkService childMarkService) {
+		this.childMarkService = childMarkService;
+	}
+
 	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "/by-subject", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
 	public ResponseEntity<List<ChildMarkDto>> getChildMarsBy(@RequestParam(value = "childId", required = false) String childId, 

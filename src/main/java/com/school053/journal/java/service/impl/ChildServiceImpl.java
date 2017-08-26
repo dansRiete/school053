@@ -14,8 +14,12 @@ import java.util.stream.Collectors;
 @Service
 public class ChildServiceImpl implements ChildService {
 
+    private final ChildDao childDao;
+
     @Autowired
-    private ChildDao childDao;
+    public ChildServiceImpl(ChildDao childDao) {
+        this.childDao = childDao;
+    }
 
     @Override
     public List<ChildDto> getChildren() {

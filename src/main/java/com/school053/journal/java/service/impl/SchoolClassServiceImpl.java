@@ -15,8 +15,12 @@ import java.util.stream.Collectors;
 @Service
 public class SchoolClassServiceImpl implements SchoolClassService {
 
+    private final SchoolClassDao schoolClassDao;
+
     @Autowired
-    public SchoolClassDao schoolClassDao;
+    public SchoolClassServiceImpl(SchoolClassDao schoolClassDao) {
+        this.schoolClassDao = schoolClassDao;
+    }
 
     @Override
     public List<SchoolClassDto> getClasses() {

@@ -1,10 +1,6 @@
 package com.school053.journal.java.rest;
 
-import com.school053.journal.java.dto.ClassAndChildDto;
 import com.school053.journal.java.dto.SchoolClassDto;
-import com.school053.journal.java.model.users.Child;
-import com.school053.journal.java.model.users.SchoolClass;
-import com.school053.journal.java.service.ChildService;
 import com.school053.journal.java.service.SchoolClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -17,11 +13,13 @@ import java.util.List;
 @RequestMapping("/classes")
 @CrossOrigin(origins = "http://localhost:4200")
 public class SchoolClassesRest {
-    @Autowired
-    private SchoolClassService classService;
+
+    private final SchoolClassService classService;
 
     @Autowired
-    private ChildService childService;
+    public SchoolClassesRest(SchoolClassService classService) {
+        this.classService = classService;
+    }
 
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
