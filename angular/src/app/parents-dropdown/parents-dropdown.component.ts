@@ -12,21 +12,12 @@ import {AppSettings} from "../app.settings";
   styleUrls: ['./parents-dropdown.component.css']
 })
 export class ParentsDropdownComponent implements OnInit {
-
   parents: Parent[];
-  http: Http;
   selectedParent: Parent;
   @Output() parentChanged = new EventEmitter();
 
-  constructor() {
-    const browserXhr: BrowserXhr = new BrowserXhr();
-    const baseResponseOptions: ResponseOptions = new ResponseOptions();
-    const xsrfStrategy: CookieXSRFStrategy = new CookieXSRFStrategy();
-    const backend: XHRBackend = new XHRBackend(browserXhr, baseResponseOptions, xsrfStrategy);
-    const requestOptions: RequestOptions = new RequestOptions();
-    const http: Http = new Http(backend, requestOptions);
-    this.http = http;
-    this.http.get(`${AppSettings.URL}/parents/getAll`).subscribe(response => this.parents = response.json());
+  constructor(private _http: Http) {
+    _http.get(`${AppSettings.URL}/parents/getAll`).subscribe(response => this.parents = response.json());
   }
 
   changeParent(selectedParent: Parent) {

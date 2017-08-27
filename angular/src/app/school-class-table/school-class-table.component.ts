@@ -14,21 +14,13 @@ import {AppSettings} from "../app.settings";
   styleUrls: ['./school-class-table.component.css']
 })
 export class SchoolClassTableComponent implements OnInit {
-  private http: Http;
   displayedColumns = ['name', 'curator'];
   exampleDatabase: ExampleDatabase;
   dataSource: ExampleDataSource | null;
 
   classes: SchoolClass[];
-  constructor() {
-    const browserXhr: BrowserXhr = new BrowserXhr();
-    const baseResponseOptions: ResponseOptions = new ResponseOptions();
-    const xsrfStrategy: CookieXSRFStrategy = new CookieXSRFStrategy();
-    const backend: XHRBackend = new XHRBackend(browserXhr, baseResponseOptions, xsrfStrategy);
-    const requestOptions: RequestOptions = new RequestOptions();
-    const http: Http = new Http(backend, requestOptions);
-    this.http = http;
-    this.exampleDatabase = new ExampleDatabase(this.http);
+  constructor(private _http: Http) {
+    this.exampleDatabase = new ExampleDatabase(_http);
   }
   ngOnInit() {
     this.dataSource = new ExampleDataSource(this.exampleDatabase);
