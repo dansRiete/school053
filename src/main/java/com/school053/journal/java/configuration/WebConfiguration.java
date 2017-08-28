@@ -17,24 +17,17 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/WEB-INF/**")
-                .addResourceLocations("/WEB-INF/");
-        registry.addResourceHandler("/resources/**")
-                .addResourceLocations("/resources/");
+        registry.addResourceHandler("/ui/**").addResourceLocations("/ui/");
+        registry.addResourceHandler("/ui/**").addResourceLocations("/ui/");
+        registry.addResourceHandler("*.css").addResourceLocations("/ui/");
+        registry.addResourceHandler("*.js").addResourceLocations("/ui/");
+        registry.addResourceHandler("/ui/assets/*.css").addResourceLocations("/ui/assets/");
     }
-
-    /*@Bean(name = "viewResolver")
-    public InternalResourceViewResolver getViewResolver() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix("/css/**");
-        viewResolver.setSuffix(".css");
-        return viewResolver;
-    }*/
 
     @Bean
     public ViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix("/WEB-INF/");
+        viewResolver.setPrefix("/ui/");
         viewResolver.setSuffix(".html");
         return viewResolver;
     }

@@ -11,12 +11,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/children")
-public class ChildRest {
+public class ChildrenRest {
 
     private final ChildService childService;
 
     @Autowired
-    public ChildRest(ChildService childService) {
+    public ChildrenRest(ChildService childService) {
         this.childService = childService;
     }
 

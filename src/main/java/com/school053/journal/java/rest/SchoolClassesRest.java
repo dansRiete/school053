@@ -15,7 +15,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/school-classes")
-@CrossOrigin(origins = "http://localhost:4200")
 public class SchoolClassesRest {
 
     private final SchoolClassService schoolClassService;
