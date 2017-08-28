@@ -7,6 +7,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
 import {Parent} from '../parents-dropdown/parent.model';
 import {AppSettings} from "../app.settings";
+import {MdTabChangeEvent} from "@angular/material/typings";
 
 @Component({
   selector: 'app-child-table',
@@ -16,10 +17,13 @@ import {AppSettings} from "../app.settings";
 
 
 export class ChildTableComponent implements OnInit {
+
   displayedColumns = ['firstName', 'lastName', 'patronymic'];
   childrenDatabase: ExampleDatabase;
   dataSource: ExampleDataSource | null;
   parentFilter = 'All children';
+  PARENT_ID: string = '202'; //Steve Parker
+  allChildren: Child[];
 
   ngOnInit() {
     this.dataSource = new ExampleDataSource(this.childrenDatabase);
@@ -27,12 +31,20 @@ export class ChildTableComponent implements OnInit {
 
   constructor(private _http: Http) {
     this.childrenDatabase = new ExampleDatabase(_http);
+    _http.get(`${AppSettings.URL}api/children/fetchByParent?parentId=${this.PARENT_ID}`)
+      .subscribe(response => this.allChildren = response.json());
   }
 
   changeParent(parent: Parent) {
     console.log('ChildTableComponent: changing parent, new parent id = ' + parent.id);
     this.parentFilter = `Children by ${parent.firstName} ${parent.lastName}`;
     this.childrenDatabase.reloadChildren(parent.id);
+  }
+
+  childChanged(tabgroup: any){
+    let childId = tabgroup._tabs.find((e, i, a) => i == tabgroup.selectedIndex)
+      .content.viewContainerRef.element.nativeElement.dataset.childId;
+    console.log('Select child in TabGroup, ID=: ' + childId);
   }
 }
 

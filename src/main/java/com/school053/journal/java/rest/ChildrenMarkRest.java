@@ -25,10 +25,18 @@ public class ChildrenMarkRest {
 		this.childMarkService = childMarkService;
 	}
 
-	@CrossOrigin(origins = "http://localhost:4200")
-	@RequestMapping(value = "/by-subject", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
-	public ResponseEntity<List<ChildMarkDto>> getChildMarsBy(@RequestParam(value = "childId", required = false) String childId, 
-			@RequestParam(value = "subjectId", required = false) String subjectId){
+	@RequestMapping(value = "/fetchBySubject", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
+	public ResponseEntity<List<ChildMarkDto>> fetchMarksBySubjectAndChild(
+			@RequestParam(value = "childId") String childId,
+			@RequestParam(value = "subjectId") String subjectId
+	){
 		return ResponseEntity.ok(childMarkService.fetchBySubjectId(childId, subjectId));
+	}
+
+	@RequestMapping(value = "/fetchByChild", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
+	public ResponseEntity<List<ChildMarkDto>> fetchMarksBySubjectAndChild(
+			@RequestParam(value = "childId") String childId
+	){
+		return ResponseEntity.ok(childMarkService.fetchByChild(childId));
 	}
 }

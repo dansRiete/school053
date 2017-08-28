@@ -7,5 +7,6 @@ import com.school053.journal.java.dto.ChildMarkDto;
 public interface ChildMarkService {
 	
 	List<ChildMarkDto> fetchBySubjectId(String childId, String subjectId);
-	
+	List<ChildMarkDto> fetchByChild(String childId);
+
 }

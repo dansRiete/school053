@@ -1,8 +1,13 @@
 <div style="width: 60%">
 
-  <div >
+  <md-tab-group #tabgroup (selectChange)="childChanged(tabgroup)">
+    <md-tab *ngFor="let child of allChildren" [attr.data-childId]="child.id" label="{{child.firstName+' '+child.lastName}}">
+      {{child.firstName+' '+child.lastName}}</md-tab>
+  </md-tab-group>
+
+  <!--<div >
     <app-parents-dropdown (parentChanged)="changeParent($event)"></app-parents-dropdown>
-  </div>
+  </div>-->
 
   <h1 class="mat-h1" style="margin-top: 20pt">{{parentFilter}}</h1>
 

@@ -1,9 +1,11 @@
 package com.school053.journal.java.dto;
 
 public class ChildMarkDto {
+
 	private String id;
 	private String date;
 	private String mark;
+	private String subject;
 	private String lessonEventTypeName;
 	
 	public ChildMarkDto() {
@@ -46,5 +48,13 @@ public class ChildMarkDto {
 
 	public void setLessonEventTypeName(String lessonEventTypeName) {
 		this.lessonEventTypeName = lessonEventTypeName;
+	}
+
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
 	}
 }

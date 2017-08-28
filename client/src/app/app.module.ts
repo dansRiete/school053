@@ -54,6 +54,7 @@ import {MdAutocompleteModule,
   MdToolbarModule,
   MdTooltipModule} from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
+import { MarksJournalComponent } from './child-table/marks-journal/marks-journal.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'children', pathMatch: 'full' },
@@ -72,7 +73,8 @@ const routes: Routes = [
     ParentsDropdownComponent,
     NavigationComponent,
     SchoolClassTableComponent,
-    AddClassComponent
+    AddClassComponent,
+    MarksJournalComponent
   ],
   imports: [
     BrowserModule,

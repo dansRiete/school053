@@ -10,12 +10,14 @@ import java.util.List;
 @Entity
 @Table(name="lesson_events")
 @NamedQueries({
-	@NamedQuery(name = LessonEvent.FIND_BY_CHILD_SUBJECT,
-			query = "FROM LessonEvent le WHERE le.lesson.subject.id= :subjectId")
+	    @NamedQuery(name = LessonEvent.FIND_BY_CHILD_SUBJECT,
+			    query = "FROM LessonEvent le WHERE le.lesson.subject.id= :subjectId"),
+        @NamedQuery(name = LessonEvent.FIND_BY_CHILD, query = "FROM LessonEvent")
 })
 public class LessonEvent implements Serializable {
 
-    public static final String FIND_BY_CHILD_SUBJECT = "LessonEvent.findBySubject";
+    public static final String FIND_BY_CHILD_SUBJECT = "LessonEvent.findByChildAndSubject";
+    public static final String FIND_BY_CHILD = "LessonEvent.findByChild";
 
     @Id
     @GeneratedValue(generator = "UUID")

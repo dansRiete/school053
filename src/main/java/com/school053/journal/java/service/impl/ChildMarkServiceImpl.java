@@ -12,6 +12,8 @@ import com.school053.journal.java.dto.ChildMarkDto;
 import com.school053.journal.java.mapper.ChildMarkMapper;
 import com.school053.journal.java.service.ChildMarkService;
 
+import javax.transaction.Transactional;
+
 @Service
 public class ChildMarkServiceImpl implements ChildMarkService {
 
@@ -24,7 +26,14 @@ public class ChildMarkServiceImpl implements ChildMarkService {
 
 	@Override
 	public List<ChildMarkDto> fetchBySubjectId(String childId, String subjectId) {
-		return childMarkDao.fetchBySubjectId(childId, subjectId).stream().map(Mappers.getMapper(ChildMarkMapper.class)::toDto)
-				.collect(Collectors.toList());
+		return childMarkDao.fetchBySubjectId(childId, subjectId).stream()
+				.map(Mappers.getMapper(ChildMarkMapper.class)::toDto).collect(Collectors.toList());
+	}
+
+	@Override
+	@Transactional
+	public List<ChildMarkDto> fetchByChild(String childId) {
+		return childMarkDao.fetchByChild(childId).stream()
+				.map(Mappers.getMapper(ChildMarkMapper.class)::toDto).collect(Collectors.toList());
 	}
 }

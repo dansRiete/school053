@@ -17,4 +17,10 @@ public class ChildMarkDaoImpl extends AbstractDao<ChildMark> implements ChildMar
 				.setParameter("childId", childId).setParameter("subjectId", subjectId)
 				.getResultList();
 	}
+
+	@Override
+	public List<ChildMark> fetchByChild(String childId) {
+		return entityManager.createNamedQuery(ChildMark.GET_BY_CHILD,ChildMark.class)
+				.setParameter("childId", childId).getResultList();
+	}
 }

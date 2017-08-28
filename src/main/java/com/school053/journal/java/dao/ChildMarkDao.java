@@ -8,4 +8,5 @@ public interface ChildMarkDao extends InterfaceDao<ChildMark> {
 	
 	List<ChildMark> fetchBySubjectId(String childId, String subjectId);
 
+    List<ChildMark> fetchByChild(String childId);
 }

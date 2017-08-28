@@ -29,7 +29,4 @@ public class ChildrenRest {
     public ResponseEntity<List<ChildDto>> fetchByParent(@RequestParam("parentId") String parentId) {
         return ResponseEntity.ok(childService.fetchByParent(parentId));
     }
-
-
-
 }

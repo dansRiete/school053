@@ -10,10 +10,13 @@ import java.io.Serializable;
 @Table(name="child_marks")
 @NamedQueries({
 	@NamedQuery(name = ChildMark.GET_BY_CHILD_AND_SUBJECT, 
-			query = "FROM ChildMark cm WHERE cm.child.id = :childId AND cm.lessonEvent.lesson.subject.id = :subjectId")
+			query = "FROM ChildMark cm WHERE cm.child.id = :childId AND cm.lessonEvent.lesson.subject.id = :subjectId"),
+		@NamedQuery(name = ChildMark.GET_BY_CHILD,
+				query = "FROM ChildMark cm WHERE cm.child.id = :childId")
 })
 public class ChildMark implements Serializable {
     public static final String GET_BY_CHILD_AND_SUBJECT= "ChildMark.getByChildAndSubject";
+    public static final String GET_BY_CHILD= "ChildMark.getByChild";
 
     @Id
     @GeneratedValue(generator = "UUID")

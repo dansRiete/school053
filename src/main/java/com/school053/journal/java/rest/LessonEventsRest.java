@@ -26,7 +26,7 @@ public class LessonEventsRest {
 	}
 	
 	@GetMapping(value = "/fetchBySubjectId")
-	public ResponseEntity<List<LessonEventDto>> fetchBySubjectId(@RequestParam(value = "subjectId", required = false) String subjectId){
+	public ResponseEntity<List<LessonEventDto>> fetchBySubjectId(@RequestParam(value = "subjectId") String subjectId){
 		return ResponseEntity.ok(lessonEventService.fetchBySubjectId(subjectId));
 	}
 }
