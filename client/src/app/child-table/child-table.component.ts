@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, Injectable, Input, OnInit} from '@angular/core';
 import {Child} from './child.model';
 import {BrowserXhr, CookieXSRFStrategy, Http, RequestOptions, ResponseOptions, XHRBackend} from '@angular/http';
 import {DataSource} from '@angular/cdk/table';
@@ -13,26 +13,20 @@ import {AppSettings} from "../app.settings";
   templateUrl: './child-table.component.html',
   styleUrls: ['./child-table.component.css']
 })
+
+
 export class ChildTableComponent implements OnInit {
-  private http: Http;
-  private displayedColumns = ['firstName', 'lastName', 'patronymic'];
-  private childrenDatabase: ExampleDatabase;
-  public dataSource: ExampleDataSource | null;
-  public parentFilter = 'All children';
+  displayedColumns = ['firstName', 'lastName', 'patronymic'];
+  childrenDatabase: ExampleDatabase;
+  dataSource: ExampleDataSource | null;
+  parentFilter = 'All children';
 
   ngOnInit() {
     this.dataSource = new ExampleDataSource(this.childrenDatabase);
   }
 
-  constructor() {
-    const browserXhr: BrowserXhr = new BrowserXhr();
-    const baseResponseOptions: ResponseOptions = new ResponseOptions();
-    const xsrfStrategy: CookieXSRFStrategy = new CookieXSRFStrategy();
-    const backend: XHRBackend = new XHRBackend(browserXhr, baseResponseOptions, xsrfStrategy);
-    const requestOptions: RequestOptions = new RequestOptions();
-    const http: Http = new Http(backend, requestOptions);
-    this.http = http;
-    this.childrenDatabase = new ExampleDatabase(this.http);
+  constructor(private _http: Http) {
+    this.childrenDatabase = new ExampleDatabase(_http);
   }
 
   changeParent(parent: Parent) {

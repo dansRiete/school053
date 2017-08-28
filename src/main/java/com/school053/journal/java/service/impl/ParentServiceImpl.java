@@ -12,7 +12,7 @@ import java.util.List;
 @Transactional(readOnly = true)
 public class ParentServiceImpl implements ParentService {
 
-    final ParentDao parentDao;
+    private final ParentDao parentDao;
 
     @Autowired
     public ParentServiceImpl(ParentDao parentDao) {

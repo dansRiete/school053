@@ -115,7 +115,6 @@ const routes: Routes = [
     MdTooltipModule,
   ],
   providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
     {provide: AppService, useClass: AppService}
   ],
   bootstrap: [AppComponent]

@@ -12,8 +12,12 @@ import com.school053.journal.java.service.LessonEventService;
 @RequestMapping("/lesson-event")
 public class LessonEventRest {
 
+	private final LessonEventService lessonEventService;
+
 	@Autowired
-	private LessonEventService lessonEventService;
+	public LessonEventRest(LessonEventService lessonEventService) {
+		this.lessonEventService = lessonEventService;
+	}
 
 
 	@GetMapping(value = "/fetchAll")

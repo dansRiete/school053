@@ -15,8 +15,12 @@ import com.school053.journal.java.service.LessonEventService;
 @Service
 public class LessonEventServiceImpl implements LessonEventService {
 
+	private final LessonEventDao lessonEventDao;
+
 	@Autowired
-	private LessonEventDao lessonEventDao;
+	public LessonEventServiceImpl(LessonEventDao lessonEventDao) {
+		this.lessonEventDao = lessonEventDao;
+	}
 
 	@Override
 	public List<LessonEventDto> fetchAll() {

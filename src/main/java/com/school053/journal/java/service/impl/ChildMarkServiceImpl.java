@@ -15,8 +15,12 @@ import com.school053.journal.java.service.ChildMarkService;
 @Service
 public class ChildMarkServiceImpl implements ChildMarkService {
 
+	private final ChildMarkDao childMarkDao;
+
 	@Autowired
-	private ChildMarkDao childMarkDao;
+	public ChildMarkServiceImpl(ChildMarkDao childMarkDao) {
+		this.childMarkDao = childMarkDao;
+	}
 
 	@Override
 	public List<ChildMarkDto> fetchBySubjectId(String childId, String subjectId) {
