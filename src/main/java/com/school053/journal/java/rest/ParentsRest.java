@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/parent")
+@RequestMapping("/api/parents")
 public class ParentsRest {
 
     //todo Logger isn't initialized properly

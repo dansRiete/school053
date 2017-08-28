@@ -17,7 +17,7 @@ export class ParentsDropdownComponent implements OnInit {
   @Output() parentChanged = new EventEmitter();
 
   constructor(private _http: Http) {
-    _http.get(`${AppSettings.URL}/parents/getAll`).subscribe(response => this.parents = response.json());
+    _http.get(`${AppSettings.URL}api/parents/fetchAll`).subscribe(response => this.parents = response.json());
   }
 
   changeParent(selectedParent: Parent) {

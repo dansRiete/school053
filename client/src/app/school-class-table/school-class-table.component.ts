@@ -35,7 +35,7 @@ export class ExampleDatabase {
   classes: SchoolClass[];
   constructor(http: Http) {
     this.http = http;
-    this.http.get(AppSettings.URL + 'school-class/fetchActiveByName').subscribe(response => this.dataChange.next(response.json()));
+    this.http.get(AppSettings.URL + 'api/school-classes/fetchActiveByName').subscribe(response => this.dataChange.next(response.json()));
   }
 }
 export class ExampleDataSource extends DataSource<any> {

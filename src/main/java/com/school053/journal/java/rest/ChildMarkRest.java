@@ -15,7 +15,7 @@ import com.school053.journal.java.dto.ChildMarkDto;
 import com.school053.journal.java.service.ChildMarkService;
 
 @RestController
-@RequestMapping("/marks")
+@RequestMapping("/api/marks")
 public class ChildMarkRest {
 	
 	private final ChildMarkService childMarkService;
@@ -29,6 +29,6 @@ public class ChildMarkRest {
 	@RequestMapping(value = "/by-subject", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
 	public ResponseEntity<List<ChildMarkDto>> getChildMarsBy(@RequestParam(value = "childId", required = false) String childId, 
 			@RequestParam(value = "subjectId", required = false) String subjectId){
-		return ResponseEntity.ok(childMarkService.getBy(childId, subjectId));
+		return ResponseEntity.ok(childMarkService.fetchBySubjectId(childId, subjectId));
 	}
 }

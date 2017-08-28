@@ -9,7 +9,7 @@ import com.school053.journal.java.dto.LessonEventDto;
 import com.school053.journal.java.service.LessonEventService;
 
 @RestController
-@RequestMapping("/lesson-event")
+@RequestMapping("/api/lesson-events")
 public class LessonEventRest {
 
 	private final LessonEventService lessonEventService;

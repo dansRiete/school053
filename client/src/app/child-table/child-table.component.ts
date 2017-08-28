@@ -44,10 +44,10 @@ export class ExampleDatabase {
 
   constructor(http: Http) {
     this.http = http;
-    this.http.get(AppSettings.URL + '/child/fetchAll').subscribe(response => this.dataChange.next(response.json()));
+    this.http.get(AppSettings.URL + 'api/children/fetchAll').subscribe(response => this.dataChange.next(response.json()));
   }
   reloadChildren(parentId: string) {
-    this.http.get(`${AppSettings.URL}/child/fetchByParent?parentId=${parentId}`)
+    this.http.get(`${AppSettings.URL}api/children/fetchByParent?parentId=${parentId}`)
       .subscribe(response => this.dataChange.next(response.json()));
   }
 }
